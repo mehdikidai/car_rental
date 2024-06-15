@@ -1,0 +1,55 @@
+header {
+    background: $black;
+    .nav {
+        height: 80px;
+        max-width: $width;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+
+        .logo {
+            //padding: 4px 12px;
+            //background: red;
+            color: $white;
+            display: flex;
+            align-items: center;
+            img {
+                height: 25px;
+            }
+        }
+        ul.links {
+            display: flex;
+            gap: $space * 4;
+            li {
+                a {
+                    color: $white;
+                    text-transform: capitalize;
+                }
+            }
+        }
+        .login {
+            display: flex;
+            flex-direction: row;
+            gap: $space;
+            a {
+                color: $white;
+                background: #fff2;
+                padding: 6px 16px;
+                border-radius: $border-radius;
+            }
+            a:nth-child(2) {
+                background: $white;
+                color: $black;
+            }
+        }
+    }
+}
+
+@include respond("phone") {
+    header {
+        .nav {
+            display: none;
+        }
+    }
+}

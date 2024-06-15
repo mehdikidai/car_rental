@@ -1,0 +1,158 @@
+.cover {
+    height: 600px;
+    background-color: #0a0001;
+    display: flex;
+    flex-direction: column;
+
+    .cover-content {
+        //background: yellow;
+        height: 520px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: $space * 2;
+        position: relative;
+        h1 {
+            width: 90vw;
+            max-width: 800px;
+            text-align: center;
+            font-size: 55px;
+            text-transform: capitalize;
+            color: $white;
+            font-weight: 900;
+        }
+        p {
+            color: $white;
+            width: 90vw;
+            max-width: 600px;
+            text-align: center;
+            line-height: 1.8;
+        }
+        .booking-section {
+            position: absolute;
+            width: 100%;
+            max-width: 770px;
+            height: 120px;
+            background: $white;
+            bottom: 0;
+            transform: translateY(50%);
+            padding: $space $space * 2;
+            clip-path: inset(0 round 12px);
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            form {
+                display: flex;
+                height: 100%;
+                width: 100%;
+                gap: $space;
+                .box-form {
+                    flex: 1;
+                    height: 100%;
+                    //background: blue;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    gap: $space * 0.4;
+                    position: relative;
+
+                    label {
+                        font-size: 14px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        i {
+                            font-size: 16px;
+                        }
+                    }
+                    input,
+                    select {
+                        height: 44px;
+                        border: 1px solid $gray;
+                        padding-inline: 10px;
+                        border-radius: $border-radius;
+                        font-size: 90%;
+                        width: 100%;
+                        background: transparent;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                    select {
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                    }
+                    span {
+                        position: relative;
+                        i {
+                            position: absolute;
+                            right: 10px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            color: $gray;
+                        }
+                    }
+                    button {
+                        background: #ff6900;
+                        height: 44px;
+                        border-radius: $border-radius;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.splide {
+    //background: red;
+    .splide__slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 50px;
+        }
+    }
+}
+
+.boxs {
+    display: grid;
+    height: auto;
+    //background: blue;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: $space;
+}
+
+@include respond("phone") {
+    .cover .cover-content h1 {
+        font-size: 24px;
+    }
+    .cover .cover-content p {
+        font-size: 14px;
+    }
+    .cover .cover-content .booking-section form {
+        flex-direction: column;
+        .box-form {
+            input,select,button {
+                height: 40px;
+            }
+        }
+    }
+
+    .cover .cover-content .booking-section {
+        position: static;
+        width: 100%;
+        height: auto;
+        transform: translateY(0);
+        padding: $space * 2 $space;
+    }
+
+    .cover {
+        height: auto;
+        background-color: $black;
+        padding-block: $space * 2;
+    }
+    .cover .cover-content {
+        height: auto;
+    }
+}

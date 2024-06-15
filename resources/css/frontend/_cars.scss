@@ -1,0 +1,39 @@
+.pagination_ul {
+    //background: red;
+    display: flex;
+    justify-content: center;
+    gap: $space;
+    margin: 40px auto;
+    align-items: center;
+    span {
+        background: $white;
+        height: 40px;
+        width: 40px;
+        box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 10px;
+        clip-path: inset(0 round 6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        color: $color_text;
+    }
+    button {
+        background: #fff;
+        height: 40px;
+        width: 40px;
+        box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 10px;
+        clip-path: inset(0 round 6px);
+        transform: scale(1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        &:disabled {
+            opacity: 0;
+            transform: scale(0.92);
+        }
+        i {
+            font-size: 24px;
+        }
+    }
+}

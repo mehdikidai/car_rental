@@ -1,0 +1,36 @@
+:root {
+    --color-white: #ffffff;
+    --color-primary-100: #b093fb;
+    --color-primary-500: #ff6900;
+    --color-gray: #e3e3e3;
+    --color-black: #0a0001;
+}
+
+$white: var(--color-white);
+$main_100: var(--color-primary-100);
+$main_500: var(--color-primary-500);
+$gray: var(--color-gray);
+$black: var(--color-black);
+$color_text: #757575;
+
+$width: 1090px;
+$space: 20px;
+$border-radius: 4px;
+
+@mixin respond($breakpoint) {
+    @if ($breakpoint == "desktop") {
+        @media (max-width: $width) {
+            @content;
+        }
+    }
+    @if ($breakpoint == "ipad") {
+        @media (max-width: 1080px) {
+            @content;
+        }
+    }
+    @if ($breakpoint == "phone") {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+}

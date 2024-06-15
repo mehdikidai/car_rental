@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./variables";
+@import "./reset";
+@import "./nav";
+@import "./home";
+@import "./date";
+@import "./box-car";
+@import "./promises";
+@import "./cars";
+@import "./footer";
+
+*,
+*::after,
+*::before {
+    font-family: "Inter", sans-serif;
+}
+
+h1 {
+    color: $main_500;
+}
+
+body {
+    min-height: 100vh;
+    background: #f5f5f7;
+}
+
+.container {
+    width: 100%;
+    max-width: $width;
+    //background: yellow;
+    margin: 0 auto;
+}
+
+.splide_hidden {
+    display: none !important;
+}
+
+.tit {
+    height: 80px;
+    //background: red;
+    display: flex;
+    align-items: center;
+    h2 {
+        font-size: 30px;
+        text-transform: capitalize;
+        color: $black;
+        font-weight: 700;
+    }
+}
+
+@include respond("phone") {
+    body {
+        width: 100vw;
+    }
+    .boxs {
+        display: grid;
+        height: auto;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .container {
+        width: 100vw !important;
+        padding-inline: 20px;
+    }
+    .promises {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content;
+        gap: 20px;
+    }
+    .promises .el {
+        padding: 60px 20px 40px;
+        .txt {
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+    .promises .el .tit_promise {
+        font-size: 20px;
+    }
+}
+
+@include respond("ipad") {
+    .container {
+        padding-inline: 20px;
+    }
+}
