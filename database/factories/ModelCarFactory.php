@@ -22,7 +22,8 @@ class ModelCarFactory extends Factory
         $models = ['B10', 'B11', 'B12', 'B13', 'B14', 'B15', 'B16', 'B17', 'B18', 'B19', 'B20', 'B21'];
 
         return [
-            'name' => strtolower($this->faker->unique()->randomElement($models))
+            'name' => strtolower($this->faker->unique()->randomElement($models)),
+            'company_id' => Company::all()->random()->id
         ];
     }
 }

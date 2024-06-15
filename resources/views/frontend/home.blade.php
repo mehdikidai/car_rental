@@ -55,7 +55,7 @@
     </div>
     <x-space h="110" />
     <x-container>
-        <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+        <div class="splide" id="splide_home" role="group" aria-label="Splide Basic HTML Example">
             <div class="splide__track">
                 <ul class="splide__list">
                     <li class="splide__slide">

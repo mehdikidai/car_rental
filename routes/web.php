@@ -11,7 +11,7 @@ Route::get('/cars', [CarController::class, 'index'])->name('frontend.cars');
 
 Route::get('/carss', function () {
 
-    $cars = Car::with(['company' => function ($q) {
+    $cars = Car::with(['model' => function ($q) {
         $q->select('id', 'name');
     }])->get();
 

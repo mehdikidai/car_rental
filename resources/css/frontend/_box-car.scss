@@ -11,9 +11,12 @@
             //background-color: blueviolet;
             aspect-ratio: 16/10;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             img {
-                width: 100%;
-                height: 100%;
+                width: 90%;
+                height: 90%;
                 object-fit: cover;
             }
             span.name {

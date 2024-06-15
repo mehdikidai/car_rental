@@ -4,7 +4,7 @@
     </x-slot:title>
 
     <x-navbar />
-    <x-space h="80" />
+    <x-space h="40" />
     <x-container>
 
         @livewire('cars')

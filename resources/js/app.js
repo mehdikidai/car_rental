@@ -36,8 +36,8 @@ new AirDatepicker("#my-element", {
     onSelect({ date: d }) {},
 });
 
-if (document.querySelector(".splide")) {
-    new Splide(".splide", {
+if (document.querySelector("#splide_home")) {
+    new Splide("#splide_home", {
         classes: {
             arrows: "splide__arrows your-class-arrows aaa",
             arrow: "splide__arrow your-class-arrow aaa",
@@ -65,13 +65,11 @@ if (document.querySelector(".splide")) {
     }).mount({ AutoScroll });
 }
 
-const btn_pagination = document.querySelectorAll(".btn_pagination");
+// const btn_pagination = document.querySelectorAll(".btn_pagination");
 
-btn_pagination.forEach((el) => {
-    el.addEventListener("click", () => {
-        window.scrollTo({
-            top: 80,
-            behavior: "smooth",
-        });
-    });
-});
+// btn_pagination.forEach((el) => {
+//     el.addEventListener("click", () => {
+//         window.scrollTo({top: 80,behavior: "smooth"});
+//     });
+// });
+

@@ -19,7 +19,7 @@ class Cars extends Component
     public function render()
     {
 
-        $cars = Car::paginate(9);
+        $cars = Car::orderBy('id', 'DESC')->paginate(9);
         $years = Car::select('year')->distinct()->get();
         return view('livewire.cars', compact('cars','years'));
 
