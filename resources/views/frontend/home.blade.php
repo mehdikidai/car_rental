@@ -1,3 +1,5 @@
+
+
 <x-layout-frontend>
     <x-slot:title>
         page home
@@ -53,7 +55,7 @@
 
 
     </div>
-    <x-space h="110" />
+    <x-space h="100" />
     <x-container>
         <div class="splide" id="splide_home" role="group" aria-label="Splide Basic HTML Example">
             <div class="splide__track">
@@ -83,7 +85,7 @@
     </x-container>
 
 
-    <x-space h="50" />
+    <x-space h="20" />
     <x-container>
         <x-tit txt="available cars"></x-tit>
     </x-container>

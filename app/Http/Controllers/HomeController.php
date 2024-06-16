@@ -9,10 +9,18 @@ class HomeController extends Controller
 {
     public function index()
     {
-        
-        $cars = Car::orderBy('id', 'DESC')->take(6)->get();
-        return view('frontend.home',compact('cars'));
+        //$cars = Car::orderBy('id', 'DESC')->take(9)->get();
+
+        $cars = Car::with([
+            'company' => function ($q) {
+                $q->select('id', 'name','logo');
+            },
+            'model' => function ($q) {
+                $q->select('id', 'name');
+            }
+        ])->orderBy('id', 'DESC')->take(9)->get();
+
+
+        return view('frontend.home', compact('cars'));
     }
-
-
 }

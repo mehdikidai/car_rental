@@ -19,6 +19,8 @@ return new class extends Migration
             $table->decimal('rental_price', 8, 2);
             $table->text('description')->nullable();
             $table->text('photo');
+            $table->text('doors');
+            $table->text('transmission');
             $table->timestamps();
             $table->foreign('model_id')->references('id')->on('model_cars')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');

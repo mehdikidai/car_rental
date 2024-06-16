@@ -8,6 +8,8 @@ import Splide from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import { areDatesOutsideRange } from "./helper";
 
+import TomSelect from "tom-select";
+
 let today = new Date();
 let tomorrow = new Date();
 tomorrow.setDate(today.getDate() + 1);
@@ -65,11 +67,17 @@ if (document.querySelector("#splide_home")) {
     }).mount({ AutoScroll });
 }
 
-// const btn_pagination = document.querySelectorAll(".btn_pagination");
+const observer = new MutationObserver(() => {
+    
+});
 
-// btn_pagination.forEach((el) => {
-//     el.addEventListener("click", () => {
-//         window.scrollTo({top: 80,behavior: "smooth"});
-//     });
+observer.observe(document.getElementById("filter_car"), { attributes: true });
+
+
+// new TomSelect("#select-beast", {
+//     create: true,
+//     sortField: {
+//         field: "text",
+//         direction: "asc",
+//     },
 // });
-

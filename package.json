@@ -18,6 +18,7 @@
         "@splidejs/splide": "^4.1.4",
         "@splidejs/splide-extension-auto-scroll": "^0.5.3",
         "air-datepicker": "^3.5.3",
-        "mc-datepicker": "^0.6.5"
+        "mc-datepicker": "^0.6.5",
+        "tom-select": "^2.3.1"
     }
 }
