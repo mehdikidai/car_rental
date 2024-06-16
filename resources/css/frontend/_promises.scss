@@ -12,10 +12,10 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        padding: $space * 4 $space $space * 3;
-        gap: $space;
+        padding: $space * 3 $space $space*1.5 ;
+        gap: $space*0.5;
         .tit_promise {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             text-transform: capitalize;
             color: $black;
@@ -36,6 +36,7 @@
         .txt {
             p {
                 color: $color_text;
+                font-size: 15px;
             }
         }
     }

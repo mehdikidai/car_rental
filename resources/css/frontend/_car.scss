@@ -1,0 +1,92 @@
+.checkout_box {
+    min-height: 400px;
+    height: auto;
+    //background-color: red;
+    display: flex;
+    gap: $space;
+
+    .form {
+        flex: 1 1 auto;
+        background: $white;
+        display: flex;
+        justify-content: center;
+        padding-block: $space * 3 $space * 4;
+        clip-path: inset(0 round 12px);
+        flex-direction: column;
+        align-items: center;
+        gap: $space * 2.5;
+        h2 {
+            font-size: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: $black;
+        }
+        form {
+            width: 80%;
+            //background: red;
+            max-width: 460px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: max-content max-content max-content max-content;
+            height: auto;
+            gap: 20px;
+            .box {
+                height: auto;
+                //background: blue;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                &:nth-child(3),
+                &:nth-child(4) {
+                    grid-column: 1/-1;
+                }
+
+                &:nth-child(5) {
+                    grid-column: 1/2;
+                    //background: red;
+                    margin-top: $space;
+                    background-color: $black;
+                    color: $white;
+                    border-radius: 4px;
+                }
+
+                label {
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    color: $color_text;
+                    text-transform: capitalize;
+                    i {
+                        font-size: 14px;
+                    }
+                }
+                input {
+                    background: transparent;
+                    border: 1px solid #acacac7d;
+                    border-radius: 4px;
+                    height: 36px;
+                    margin: 0 auto;
+                    padding: 0 10px;
+                    width: 100%;
+                    font-size: 14px;
+                    color: $color_text;
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                }
+                button {
+                    height: 36px;
+                    text-transform: capitalize;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .info {
+        width: 450px;
+        background: transparent;
+        //clip-path: inset(0 round 12px);
+    }
+}

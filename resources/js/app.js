@@ -67,11 +67,14 @@ if (document.querySelector("#splide_home")) {
     }).mount({ AutoScroll });
 }
 
-const observer = new MutationObserver(() => {
-    
-});
 
-observer.observe(document.getElementById("filter_car"), { attributes: true });
+new AirDatepicker("#my-element-2", {
+    locale: localeEn,
+    autoClose: true,
+    isMobile: false,
+    minDate: tomorrow,
+    range: true,
+});
 
 
 // new TomSelect("#select-beast", {

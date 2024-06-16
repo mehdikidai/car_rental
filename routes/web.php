@@ -5,9 +5,19 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CarController;
 use App\Models\Car;
 
+
+
+
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 
 Route::get('/cars', [CarController::class, 'index'])->name('frontend.cars');
+
+Route::get('/car/{id}', [CarController::class, 'show'])->name('car.show')->where(['id' => '[0-9]+']);
+
+
+
+
+
 
 Route::get('/carss', function () {
     $cars = Car::with([

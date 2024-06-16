@@ -38,8 +38,7 @@
     }
 }
 
-
-.mkin_walo{
+.mkin_walo {
     background: $white;
     height: 400px;
     grid-column: 1/-1;
@@ -54,19 +53,20 @@
     //background: $white;
     margin-bottom: $space * 2;
     display: flex;
-    gap: $space * .5;
+    gap: $space * 0.5;
     flex-wrap: wrap;
     button {
-        background: $white;
+        background: transparent;
         height: 33px;
-        clip-path: inset(0 round 6px);
         padding-inline: 12px;
         font-size: 14px;
         text-transform: capitalize;
-        color:$black;
-        &:disabled{
+        color: $black;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+        &:disabled {
             background: $black;
-            color:$white;
+            color: $white;
         }
     }
 }

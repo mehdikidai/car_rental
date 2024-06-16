@@ -1,7 +1,7 @@
 @props(['carInfo'])
 
 <div class="box-car">
-    <a href="#">
+    <a href="{{ route('car.show',$carInfo->id) }}">
         <div class="div-img">
             <span class="name">{{ $carInfo->company->name }}</span>
             <span class="name name_tit">{{ $carInfo->model->name }}</span>

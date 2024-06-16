@@ -20,4 +20,14 @@ class CarController extends Controller
         return view('frontend.cars', compact('cars'));
     }
 
+    public function show(Request $request)
+    {
+        
+        $car = Car::findOrFail($request->id);
+
+        //dd($car);
+
+        return view('frontend.car',compact('car'));
+
+    }
 }
