@@ -12,12 +12,12 @@ class SearchController extends Controller
         $data = $request->validate([
 
             'company_id' => 'required|integer|exists:companies,id',
-            'date_star' => ['required', 'date_format:d/m/Y', 'before_or_equal:date_end'],
-            'date_end' => ['required', 'date_format:d/m/Y', 'after_or_equal:date_star'],
+            'date_star' => ['required', 'date_format:Y-m-d', 'before_or_equal:date_end'],
+            'date_end' => ['required', 'date_format:Y-m-d', 'after_or_equal:date_star'],
 
         ]);
 
         dd($data);
-        
+
     }
 }

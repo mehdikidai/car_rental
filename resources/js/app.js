@@ -14,20 +14,34 @@ let today = new Date();
 let tomorrow = new Date();
 tomorrow.setDate(today.getDate() + 1);
 
+let dpMin, dpMax;
 
-
-new AirDatepicker("#date_star", {
+dpMin = new AirDatepicker("#date_star", {
     locale: localeEn,
     autoClose: true,
     isMobile: false,
     minDate: tomorrow,
+    dateFormat: "yyyy-MM-dd",
+    onSelect({ date }) {
+        let newMaxDate = new Date(date);
+        newMaxDate.setDate(newMaxDate.getDate() + 1);
+        dpMax.update({
+            minDate: newMaxDate,
+        });
+    },
 });
 
-new AirDatepicker("#date_end", {
+dpMax = new AirDatepicker("#date_end", {
     locale: localeEn,
     autoClose: true,
     isMobile: false,
     minDate: tomorrow,
+    dateFormat: "yyyy-MM-dd",
+    onSelect({ date }) {
+        dpMin.update({
+            maxDate: date,
+        });
+    },
 });
 
 if (document.querySelector("#splide_home")) {
@@ -70,6 +84,7 @@ if (document.getElementById("rental_date")) {
         let price = totalDays.dataset.price;
 
         if (rentalDate && returnDate) {
+            
             const rentalDateObj = new Date(rentalDate);
             const returnDateObj = new Date(returnDate);
             const timeDifference = returnDateObj - rentalDateObj;
@@ -81,10 +96,10 @@ if (document.getElementById("rental_date")) {
 
             rentalTotal.innerText =
                 dayDifference > 0
-                    ? (Number(price) * dayDifference).toFixed(2)
+                    ? `${(Number(price) * dayDifference).toFixed(2)} DH` 
                     : "-";
 
-            console.log(dayDifference, Number(price) * dayDifference);
+            //console.log(dayDifference, Number(price) * dayDifference);
             //return dayDifference;
         } else {
             totalDays.innerText = "-";
@@ -93,27 +108,37 @@ if (document.getElementById("rental_date")) {
         }
     }
 
-    new AirDatepicker("#rental_date", {
+    let dpMin_2, dpMax_2;
+
+    dpMin_2 = new AirDatepicker("#rental_date", {
         locale: localeEn,
         autoClose: true,
         isMobile: false,
         minDate: tomorrow,
+        dateFormat: "yyyy-MM-dd",
         onSelect({ date }) {
             rentalDate = date;
             x(rentalDate, returnDate);
+            let newMaxDate = new Date(date);
+            newMaxDate.setDate(newMaxDate.getDate() + 1);
+            dpMax_2.update({
+                minDate: newMaxDate,
+            });
         },
     });
 
-    new AirDatepicker("#return_date", {
+    dpMax_2 = new AirDatepicker("#return_date", {
         locale: localeEn,
         autoClose: true,
         isMobile: false,
         minDate: tomorrow,
+        dateFormat: "yyyy-MM-dd",
         onSelect({ date }) {
             returnDate = date;
             x(rentalDate, returnDate);
+            dpMin_2.update({
+                maxDate: date,
+            });
         },
     });
 }
-
-

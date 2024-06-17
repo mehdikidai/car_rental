@@ -12,7 +12,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>{{ $title }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
     @livewireStyles
     @vite(['resources/css/frontend/app.scss'])
 
@@ -23,7 +22,7 @@
     {{ $slot }}
 
     @livewireScripts
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+    
     @vite(['resources/js/app.js'])
 
 

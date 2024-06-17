@@ -12,8 +12,8 @@ class RentalController extends Controller
         $data = $request->validate([
 
             'car_id' => 'required|integer|exists:cars,id',
-            'rental_date' => ['required', 'date_format:d/m/Y', 'before_or_equal:return_date'],
-            'return_date' => ['required', 'date_format:d/m/Y', 'after_or_equal:rental_date'],
+            'rental_date' => ['required', 'date_format:Y-m-d', 'before_or_equal:return_date'],
+            'return_date' => ['required', 'date_format:Y-m-d', 'after_or_equal:rental_date'],
 
         ]);
 
