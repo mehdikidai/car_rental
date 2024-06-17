@@ -1,8 +1,21 @@
 .cover {
     height: 600px;
-    background-color: #0a0001;
+    background-color: $black;
     display: flex;
     flex-direction: column;
+    position: relative;
+
+    .photo_cover {
+        width: 100%;
+        height: 100%;
+        inset: 50%;
+        object-fit: cover;
+        z-index: 0;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        object-position: center 40%;
+        //opacity: 0.4;
+    }
 
     .cover-content {
         //background: yellow;
@@ -11,17 +24,18 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: $space * 2;
+        gap: $space;
         position: relative;
         h1 {
             width: 90vw;
             max-width: 800px;
             text-align: center;
-            font-size: 55px;
-            text-transform: capitalize;
+            font-size: 45px;
+            text-transform: uppercase;
             color: $white;
             font-weight: 900;
             line-height: 1.1;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
         }
         p {
             color: $white;
@@ -33,8 +47,8 @@
         .booking-section {
             position: absolute;
             width: 100%;
-            max-width: 850px;
-            height: 120px;
+            //max-width: 850px;
+            height: 140px;
             background: $white;
             bottom: 0;
             transform: translateY(50%);
@@ -61,8 +75,10 @@
                         display: flex;
                         align-items: center;
                         gap: 10px;
+                        color: $color_text;
                         i {
                             font-size: 16px;
+                            color: $color_text;
                         }
                     }
                     input,
@@ -122,7 +138,13 @@
     //background: blue;
     grid-template-columns: 1fr 1fr 1fr;
     gap: $space;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+@include respond("laptop") {
+    .boxs {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @include respond("phone") {
@@ -135,7 +157,9 @@
     .cover .cover-content .booking-section form {
         flex-direction: column;
         .box-form {
-            input,select,button {
+            input,
+            select,
+            button {
                 height: 40px;
             }
         }

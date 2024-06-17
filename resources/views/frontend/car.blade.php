@@ -10,31 +10,45 @@
 
             <div class="checkout_box">
                 <div class="form">
-                    <h2>checkout</h2>
-                    <form action="#" method="post">
+                    <div class="tit-checkout">
+                        <h2>checkout</h2>
+                    </div>
+
+                    <form action="{{ route('rental.store') }}" method="POST">
+                        @csrf
                         <div class="box">
-                            <label for="picktime"> 
-                                <i class="material-symbols-outlined">person</i> prénom
+                            <label for="picktime">
+                                <i class="material-symbols-outlined">person</i> date de réservation
                             </label>
-                            <input type="text" placeholder="prénom" value="">
+                            <input type="text" name="rental_date" id="rental_date" placeholder="date de réservation">
+                            {{-- <input type="date" name="date_r" id="d"> --}}
                         </div>
                         <div class="box">
-                            <label for="picktime"> 
-                                <i class="material-symbols-outlined">person</i> prénom
+                            <label for="picktime">
+                                <i class="material-symbols-outlined">person</i> date de réservation
                             </label>
-                            <input type="text" placeholder="prénom" value="">
+                            <input type="text" name="return_date" id="return_date" placeholder="date de réservation">
+                            {{-- <input type="date" name="date_r" id="d"> --}}
                         </div>
-                        <div class="box">
-                            <label for="picktime"> 
-                                <i class="material-symbols-outlined">phone</i> mobile
-                            </label>
-                            <input type="text" placeholder="prénom" value="">
-                        </div>
-                        <div class="box">
-                            <label for="picktime"> 
-                                <i class="material-symbols-outlined">person</i> prénom
-                            </label>
-                            <input type="text" name="t" id="my-element-2" placeholder="date de réservation">
+                        <input type="hidden" name="car_id" value="{{ '1' }}">
+                        <div class="box box_details">
+                            <span class="detail">
+                                details
+                            </span>
+                            <table>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>{{$car->rental_price}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Days</td>
+                                    <td data-price="{{$car->rental_price}}" id="total_days">-</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td id="rental_total">-</td>
+                                </tr>
+                            </table>
                         </div>
                         <div class="box">
                             <button type="submit">rent new</button>

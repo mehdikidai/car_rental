@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        //$cars = Car::orderBy('id', 'DESC')->take(9)->get();
 
         $cars = Car::with([
             'company' => function ($q) {
@@ -20,7 +20,9 @@ class HomeController extends Controller
             }
         ])->orderBy('id', 'DESC')->take(9)->get();
 
+        $companies = Company::all();
 
-        return view('frontend.home', compact('cars'));
+        return view('frontend.home', compact('cars','companies'));
+
     }
 }

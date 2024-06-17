@@ -3,7 +3,7 @@
     --color-primary-100: #b093fb;
     --color-primary-500: #ff6900;
     --color-gray: #e3e3e3;
-    --color-black: #0a0001;
+    --color-black: #000000;
 }
 
 $white: var(--color-white);
@@ -20,6 +20,12 @@ $border-radius: 4px;
 @mixin respond($breakpoint) {
     @if ($breakpoint == "desktop") {
         @media (max-width: $width) {
+            @content;
+        }
+    }
+
+    @if ($breakpoint == "laptop") {
+        @media (max-width: 1080px) and (min-width: 600px){
             @content;
         }
     }

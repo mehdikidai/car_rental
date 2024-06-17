@@ -1,5 +1,9 @@
 header {
     background: $black;
+    &.route_home{
+        background: transparent;
+    }
+    z-index: 99;
     .nav {
         height: 80px;
         max-width: $width;
@@ -7,6 +11,7 @@ header {
         justify-content: space-between;
         align-items: center;
         margin: 0 auto;
+
 
         .logo {
             //padding: 4px 12px;
@@ -34,9 +39,10 @@ header {
             gap: $space;
             a {
                 color: $white;
-                background: #fff2;
+                background: transparent;
                 padding: 6px 16px;
                 border-radius: $border-radius;
+                text-transform: capitalize;
             }
             a:nth-child(2) {
                 background: $white;

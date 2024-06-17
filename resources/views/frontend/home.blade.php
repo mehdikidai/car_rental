@@ -1,14 +1,12 @@
-
-
 <x-layout-frontend>
     <x-slot:title>
         page home
     </x-slot:title>
     <div class="cover">
 
-        
-            <x-navbar></x-navbar>
-        
+
+        <x-navbar></x-navbar>
+        <img src="{{ asset('images/bg_cover.jpg') }}" alt="a" class="photo_cover">
         <x-container>
             <div class="cover-content">
                 <h1>Lorem ipsum dolor sit amet, consectetur adipisicing ?</h1>
@@ -16,18 +14,20 @@
                     impedit necessitatibus nemo suscipit voluptate tempore eveniet error totam quo quisquam ea optio non
                     eius.</p>
                 <div class="booking-section">
-                    <form action="#" method="post">
+                    <form action="{{ route('search.home') }}" method="post">
+                        @csrf
                         <div class="box-form">
                             <label for="picktime">
                                 <i class="material-symbols-outlined">directions_car</i>
                                 Date de réservation
                             </label>
                             <span>
-                                <select id="cars">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="opel">Opel</option>
-                                    <option value="audi">Audi</option>
+                                <select id="cars" name="company_id">
+                                    @foreach ($companies as $company)
+                                        <option value="{{$company->id}}">{{$company->name}}</option>
+                                    @endforeach
+
+
                                 </select>
                                 <i class="material-symbols-outlined">arrow_drop_down</i>
                             </span>
@@ -40,8 +40,17 @@
                                 <i class="material-symbols-outlined">calendar_month</i>
                                 Date de réservation
                             </label>
-                            <input type="text" name="t" id="my-element" placeholder="date de réservation">
+                            <input type="text" name="date_star" id="date_star" placeholder="date de réservation">
                         </div>
+
+                        <div class="box-form">
+                            <label for="picktime">
+                                <i class="material-symbols-outlined">calendar_month</i>
+                                Date de réservation
+                            </label>
+                            <input type="text" name="date_end" id="date_end" placeholder="date de réservation">
+                        </div>
+
                         <div class="box-form">
                             <button>recherche</button>
                         </div>

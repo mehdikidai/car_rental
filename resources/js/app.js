@@ -8,34 +8,26 @@ import Splide from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import { areDatesOutsideRange } from "./helper";
 
-import TomSelect from "tom-select";
+//import TomSelect from "tom-select";
 
 let today = new Date();
 let tomorrow = new Date();
 tomorrow.setDate(today.getDate() + 1);
 
-const disabledDates = [
-    new Date(2024, 5, 20),
-    new Date(2024, 5, 21),
-    new Date(2024, 5, 22),
-];
 
-new AirDatepicker("#my-element", {
+
+new AirDatepicker("#date_star", {
     locale: localeEn,
-    //autoClose: true,
+    autoClose: true,
     isMobile: false,
     minDate: tomorrow,
-    range: true,
-    onRenderCell({ date, cellType }) {
-        if (cellType === "day") {
-            if (disabledDates.some((d) => d.getTime() === date.getTime())) {
-                return {
-                    disabled: true,
-                };
-            }
-        }
-    },
-    onSelect({ date: d }) {},
+});
+
+new AirDatepicker("#date_end", {
+    locale: localeEn,
+    autoClose: true,
+    isMobile: false,
+    minDate: tomorrow,
 });
 
 if (document.querySelector("#splide_home")) {
@@ -67,20 +59,61 @@ if (document.querySelector("#splide_home")) {
     }).mount({ AutoScroll });
 }
 
+if (document.getElementById("rental_date")) {
+    let rentalDate = null;
+    let returnDate = null;
 
-new AirDatepicker("#my-element-2", {
-    locale: localeEn,
-    autoClose: true,
-    isMobile: false,
-    minDate: tomorrow,
-    range: true,
-});
+    function x(rentalDate, returnDate) {
+        let totalDays = document.getElementById("total_days");
+        let rentalTotal = document.getElementById("rental_total");
+
+        let price = totalDays.dataset.price;
+
+        if (rentalDate && returnDate) {
+            const rentalDateObj = new Date(rentalDate);
+            const returnDateObj = new Date(returnDate);
+            const timeDifference = returnDateObj - rentalDateObj;
+            const dayDifference = timeDifference / (1000 * 3600 * 24);
+
+            //console.log(rentalDate, returnDate);
+
+            totalDays.innerText = dayDifference > 0 ? dayDifference : "-";
+
+            rentalTotal.innerText =
+                dayDifference > 0
+                    ? (Number(price) * dayDifference).toFixed(2)
+                    : "-";
+
+            console.log(dayDifference, Number(price) * dayDifference);
+            //return dayDifference;
+        } else {
+            totalDays.innerText = "-";
+
+            rentalTotal.innerText = "-";
+        }
+    }
+
+    new AirDatepicker("#rental_date", {
+        locale: localeEn,
+        autoClose: true,
+        isMobile: false,
+        minDate: tomorrow,
+        onSelect({ date }) {
+            rentalDate = date;
+            x(rentalDate, returnDate);
+        },
+    });
+
+    new AirDatepicker("#return_date", {
+        locale: localeEn,
+        autoClose: true,
+        isMobile: false,
+        minDate: tomorrow,
+        onSelect({ date }) {
+            returnDate = date;
+            x(rentalDate, returnDate);
+        },
+    });
+}
 
 
-// new TomSelect("#select-beast", {
-//     create: true,
-//     sortField: {
-//         field: "text",
-//         direction: "asc",
-//     },
-// });
