@@ -19,7 +19,24 @@
 
 .air-datepicker {
 	background: var(--adp-background-color);
-	border: 1px solid $gray;
+	border:none !important;
 	box-shadow: none !important;
 	border-radius: $border-radius;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) !important;
+}
+.air-datepicker--pointer {
+	display: none !important;
+}
+
+.air-datepicker-cell {
+	font-size: 12px;
+}
+
+.-disabled-:hover{
+    background: transparent  !important;
+}
+
+.air-datepicker-cell.-disabled- {
+	cursor: default;
+	color: #d7d7d7 !important;
 }

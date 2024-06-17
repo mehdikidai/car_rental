@@ -1,6 +1,6 @@
 <x-layout-frontend>
     <x-slot:title>
-        page home
+        page frontend.home
     </x-slot:title>
     <div class="cover">
 
@@ -14,8 +14,8 @@
                     impedit necessitatibus nemo suscipit voluptate tempore eveniet error totam quo quisquam ea optio non
                     eius.</p>
                 <div class="booking-section">
-                    <form action="{{ route('search.home') }}" method="post">
-                        @csrf
+                    <form action="{{ route('search.frontend.home') }}" method="get">
+                        
                         <div class="box-form">
                             <label for="picktime">
                                 <i class="material-symbols-outlined">directions_car</i>

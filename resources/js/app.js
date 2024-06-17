@@ -22,6 +22,7 @@ dpMin = new AirDatepicker("#date_star", {
     isMobile: false,
     minDate: tomorrow,
     dateFormat: "yyyy-MM-dd",
+    //visible: true,
     onSelect({ date }) {
         let newMaxDate = new Date(date);
         newMaxDate.setDate(newMaxDate.getDate() + 1);

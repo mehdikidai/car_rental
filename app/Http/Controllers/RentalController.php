@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
+use App\Models\rental;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class RentalController extends Controller
 {
@@ -17,6 +21,15 @@ class RentalController extends Controller
 
         ]);
 
-        dd($data);
+        $rental_date   = Carbon::parse($data['rental_date']);
+        $return_date   = Carbon::parse($data['return_date']);
+        $allDays = $rental_date->diffInDays($return_date);
+        $car     = Car::findOrFail($data['car_id']);
+        $total_price = $car->rental_price * $allDays;
+        $user_id = Auth::user()->id;
+
+        
+
+        
     }
 }

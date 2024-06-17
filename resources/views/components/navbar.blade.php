@@ -1,9 +1,7 @@
-
-
 @if (Route::currentRouteName() === 'frontend.home')
     <header class="route_home">
-@else
-    <header>
+    @else
+        <header>
 @endif
 
 
@@ -19,8 +17,17 @@
         <li><a href="#">contact</a></li>
     </ul>
     <div class="login">
-        <a href="#">login</a>
-        <a href="#">logout</a>
+
+        @guest
+            <a href="{{ route('login') }}"> sign in </a>
+            <a href="#">Sign up</a>
+        @endguest
+
+        @auth
+        <a href="{{ route('logout') }}"> logout </a>
+        <a href="#">profile</a>
+        @endauth
+
     </div>
 </nav>
 
