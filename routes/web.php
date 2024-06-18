@@ -23,6 +23,9 @@ Route::controller(CarController::class)->group(function () {
 Route::post('/rental', [RentalController::class, 'store'])->name('rental.store');
 
 
+Route::get('/get-booked-days/{car_id}', [RentalController::class,'getBookedDays'])->where(['id' => '[0-9]+']);
+
+
 Route::get('/search', [SearchController::class, 'show'])->name('search.frontend.home');
 
 

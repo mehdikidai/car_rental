@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Car;
 use App\Models\Company;
+use App\Models\Customer;
 use App\Models\ModelCar;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
@@ -26,12 +27,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Company::factory(7)->create();
-        
         ModelCar::factory(10)->create();
-
-        User::factory(10)->create();
-
-
+        User::factory(1)->create();
+        Customer::factory(1)->create();
         Car::factory()->count(90)->create();
+
     }
 }

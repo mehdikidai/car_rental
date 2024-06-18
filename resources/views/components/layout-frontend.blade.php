@@ -12,8 +12,14 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>{{ $title }}</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+
+
     @livewireStyles
-    @vite(['resources/css/frontend/app.scss'])
+    @vite(['resources/css/frontend/app.scss', 'resources/js/alert.js'])
 
 </head>
 
@@ -22,7 +28,7 @@
     {{ $slot }}
 
     @livewireScripts
-    
+
     @vite(['resources/js/app.js'])
 
 

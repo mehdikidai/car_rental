@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('customer_id')->constrained('customers');
             $table->date('rental_date');
             $table->date('return_date');
+            $table->integer('days');
             $table->decimal('total_price', 8, 2);
             $table->timestamps();
         });

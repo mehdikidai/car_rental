@@ -6,9 +6,14 @@ import localeEn from "air-datepicker/locale/fr";
 import "@splidejs/splide/css";
 import Splide from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-import { areDatesOutsideRange } from "./helper";
+//import { areDatesOutsideRange } from "./helper";
+//import axios from "axios";
+//import moment from 'moment';
 
-//import TomSelect from "tom-select";
+
+
+
+
 
 let today = new Date();
 let tomorrow = new Date();
@@ -85,7 +90,6 @@ if (document.getElementById("rental_date")) {
         let price = totalDays.dataset.price;
 
         if (rentalDate && returnDate) {
-            
             const rentalDateObj = new Date(rentalDate);
             const returnDateObj = new Date(returnDate);
             const timeDifference = returnDateObj - rentalDateObj;
@@ -97,11 +101,8 @@ if (document.getElementById("rental_date")) {
 
             rentalTotal.innerText =
                 dayDifference > 0
-                    ? `${(Number(price) * dayDifference).toFixed(2)} DH` 
+                    ? `${(Number(price) * dayDifference).toFixed(2)} DH`
                     : "-";
-
-            //console.log(dayDifference, Number(price) * dayDifference);
-            //return dayDifference;
         } else {
             totalDays.innerText = "-";
 
@@ -125,7 +126,7 @@ if (document.getElementById("rental_date")) {
             dpMax_2.update({
                 minDate: newMaxDate,
             });
-        },
+        }
     });
 
     dpMax_2 = new AirDatepicker("#return_date", {

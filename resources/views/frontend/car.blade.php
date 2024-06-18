@@ -9,6 +9,30 @@
         <x-container>
 
             <div class="checkout_box">
+                @if (session('ok'))
+                    <script>
+                        const notyf = new Notyf({
+                            duration: 2000,
+                            position: {
+                                x: 'center',
+                                y: 'bottom',
+                            }
+                        });
+                        notyf.success('{{ session('ok') }}');
+                    </script>
+                @endif
+                @if (session('error_rental'))
+                    <script>
+                        const notyf = new Notyf({
+                            duration: 2000,
+                            position: {
+                                x: 'center',
+                                y: 'bottom',
+                            }
+                        });
+                        notyf.error('{{ session('error_rental') }}');
+                    </script>
+                @endif
                 <div class="form">
                     <div class="tit-checkout">
                         <h2>checkout</h2>
@@ -30,7 +54,7 @@
                             <input type="text" name="return_date" id="return_date" placeholder="date de réservation">
                             {{-- <input type="date" name="date_r" id="d"> --}}
                         </div>
-                        <input type="hidden" name="car_id" value="{{ $car->id }}">
+                        <input type="hidden" name="car_id" value="{{ $car->id }}" id="input_car_id">
                         <div class="box box_details">
                             <span class="detail">
                                 details
@@ -38,11 +62,11 @@
                             <table>
                                 <tr>
                                     <td>Price</td>
-                                    <td>{{$car->rental_price .' DH'}}</td>
+                                    <td>{{ $car->rental_price . ' DH' }}</td>
                                 </tr>
                                 <tr>
                                     <td>Days</td>
-                                    <td data-price="{{$car->rental_price}}" id="total_days">-</td>
+                                    <td data-price="{{ $car->rental_price }}" id="total_days">-</td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>

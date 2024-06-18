@@ -50,7 +50,8 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('frontend.home');
+        
+        return redirect()->route('frontend.home')->with('logout', 'You have been renting successfully');
 
     }
 

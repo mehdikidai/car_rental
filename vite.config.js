@@ -8,7 +8,8 @@ export default defineConfig({
                 "resources/css/frontend/app.scss",
                 "resources/css/auth/app_login.scss",
                 "resources/js/app.js",
-                "resources/js/app_login.js"
+                "resources/js/app_login.js",
+                "resources/js/alert.js"
             ],
             refresh: true,
         }),

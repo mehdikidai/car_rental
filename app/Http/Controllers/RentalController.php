@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
-use App\Models\rental;
+use App\Models\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -23,13 +23,62 @@ class RentalController extends Controller
 
         $rental_date   = Carbon::parse($data['rental_date']);
         $return_date   = Carbon::parse($data['return_date']);
+
         $allDays = $rental_date->diffInDays($return_date);
         $car     = Car::findOrFail($data['car_id']);
         $total_price = $car->rental_price * $allDays;
         $user_id = Auth::user()->id;
 
-        
 
+        $overlappingRentals = Rental::where('car_id', $request->input('car_id'))
+            ->where(function ($query) use ($rental_date, $return_date) {
+                $query->whereBetween('rental_date', [$rental_date, $return_date])
+                    ->orWhereBetween('return_date', [$rental_date, $return_date])
+                    ->orWhereRaw('? BETWEEN rental_date AND return_date', [$rental_date])
+                    ->orWhereRaw('? BETWEEN rental_date AND return_date', [$return_date]);
+            })
+            ->exists();
+
+        if ($overlappingRentals) {
+
+            return back()->with('error_rental', 'You have been renting successfully');
+
+        }
+
+        Rental::create([
+
+            'car_id' => $data['car_id'],
+            'customer_id' => $user_id,
+            'rental_date' => $rental_date,
+            'return_date' => $return_date,
+            'total_price' => $total_price,
+            'days' => $allDays
+
+        ]);
+
+        return back()->with('ok', 'You have been renting successfully');
+    }
+
+
+    // getBookedDays ----------------------
+
+    public function getBookedDays(Request $request)
+    {
+
+        $rentals = Rental::where('car_id', $request->car_id)->get();
+        $bookedDays = [];
         
+        foreach ($rentals as $rental) {
+            $start = Carbon::parse($rental->rental_date);
+            $end = Carbon::parse($rental->return_date);
+
+            while ($start->lte($end)) {
+                $bookedDays[] = $start->toDateString();
+                $start->addDay();
+            }
+        }
+
+        return response()->json(['booked_days' => $bookedDays], 200);
+
     }
 }
