@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('return_date');
             $table->integer('days');
             $table->decimal('total_price', 8, 2);
+            $table->string('status')->default('pending');
             $table->timestamps();
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade');

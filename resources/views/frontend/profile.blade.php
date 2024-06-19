@@ -42,12 +42,19 @@
                         <i class="material-symbols-outlined icon">phone_in_talk</i>
                         <small>{{ $user->customer->phone }}</small>
                     </div>
+                    <div class="box">
+                        <i class="material-symbols-outlined icon">local_taxi</i>
+                        <small>{{ $my_cars->total() }}</small>
+                    </div>
                 </div>
             </div>
 
             <x-space h="40" />
             @if ($my_cars->isEmpty())
-                <p>No car reservations found.</p>
+                <div class="no_cars">
+                    <i class="material-symbols-outlined">car_tag</i>
+                    <p>No car reservations found.</p>
+                </div>
             @else
                 <table id="customers">
                     <tr>
@@ -59,7 +66,7 @@
                         <th>Duration</th>
                         <th>Price</th>
                         <th>Status</th>
-                        <th>#</th>
+                        <th>_</th>
 
                     </tr>
                     @foreach ($my_cars as $car)
@@ -73,12 +80,13 @@
                             <td>{{ $car->total_price . ' Dh' }}</td>
                             <td>{{ !true ? 'Confirmed' : 'Pending' }}</td>
                             <td>
-                                <form action="{{ route('rental.destroy', $car->id) }}" method="post" class="form_delete_rental">
+                                <form action="{{ route('rental.destroy', $car->id) }}" method="post"
+                                    class="form_delete_rental">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"><i class="material-symbols-outlined">delete</i></button>
                                 </form>
-                                
+
                             </td>
                         </tr>
                     @endforeach
@@ -86,6 +94,26 @@
 
 
                 </table>
+
+                @if ($my_cars->hasPages())
+                    <div class="paginate">
+                        <ul>
+                            @for ($i = -2; $i <= $my_cars->currentPage() + 2; $i++)
+                                @if ($i > 0 && $i <= $my_cars->lastPage())
+                                    @if ($i == $my_cars->currentPage())
+                                        <li class="active"><a href="{{ $my_cars->url($i) }}">{{ $i }}</a>
+                                        </li>
+                                    @else
+                                        <li><a href="{{ $my_cars->url($i) }}">{{ $i }}</a></li>
+                                    @endif
+                                @endif
+                            @endfor
+
+
+                        </ul>
+                    </div>
+                @endif
+
             @endif
             <x-space h="60" />
 

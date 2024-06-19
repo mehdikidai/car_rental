@@ -11,25 +11,25 @@
         <div class="form_box">
             <div class="box">
                 
-                <input type="text" name="f_name" id="f_name" placeholder="First Name">
+                <input type="text" name="f_name" id="f_name" placeholder="First Name" value="{{ old('f_name') }}">
             </div>
             <div class="box">
                 
-                <input type="text" name="l_name" id="l_name" placeholder="Last Name">
+                <input type="text" name="l_name" id="l_name" placeholder="Last Name" value="{{ old('l_name') }}">
             </div>
             <div class="box column_2">
                 
-                <input type="text" name="email" id="input_email" placeholder="Email">
+                <input type="text" name="email" id="input_email" placeholder="Email" value="{{ old('email') }}">
             </div>
             <div class="box column_2">
                 
-                <input type="text" name="address" id="input_address" placeholder="Address">
+                <input type="text" name="address" id="input_address" placeholder="Address" value="{{ old('address') }}">
             </div>
             <div class="box">
-                <input type="text" name="city" id="f_name" placeholder="City">
+                <input type="text" name="city" id="f_name" placeholder="City" value="{{ old('city') }}">
             </div>
             <div class="box">
-                <input type="text" name="phone" id="f_name" placeholder="Phone">
+                <input type="text" name="phone" id="f_name" placeholder="Phone" value="{{ old('phone') }}">
             </div>
             <div class="box">
                 <input type="password" name="password" id="f_name" placeholder="Password">

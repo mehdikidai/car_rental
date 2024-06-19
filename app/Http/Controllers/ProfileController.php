@@ -37,13 +37,17 @@ class ProfileController extends Controller
         }])
             ->where('customer_id', '=', $customer->id)
             ->latest('created_at')
-            ->get();
+            ->paginate(4);
 
 
         $user = User::with(['customer'=>fn($q)=>$q->select('id','user_id','phone','address')])->find(1);
 
 
-        //return response()->json($user);
+        if ($my_cars->currentPage() > $my_cars->lastPage()) {
+
+           return  abort(404);
+
+        }
 
 
         return view('frontend.profile', compact('my_cars','user'));

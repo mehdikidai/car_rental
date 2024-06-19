@@ -61,6 +61,7 @@
         font-weight: 400;
 		font-size: 14px !important;
 		margin: 0 !important;
+		border-radius: 4px !important;
 		//background: $black !important;
 		&:focus{
 			outline: none;
@@ -88,11 +89,20 @@
 	   font-size: 50px;
 	   &.warning{
 		color: #f8bb86;
+		color: #6d6d6d52;
 	   }
 	}
 }
 
 .swal2-top{
 	padding-top: 100px;
+}
+
+.swal2-actions {
+	display: grid;
+	margin: 1.25em auto 0;
+	padding: 0;
+	grid-template-columns: 1fr 1fr;
+	gap: $space;
 }
 
