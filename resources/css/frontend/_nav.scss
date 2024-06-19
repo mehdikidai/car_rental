@@ -42,12 +42,25 @@ header {
                 background: transparent;
                 padding: 6px 16px;
                 border-radius: $border-radius;
-                text-transform: capitalize;
+                text-transform: lowercase;
+                border: 1px solid $white;
+                font-size: 14px;
+                &:nth-child(2) {
+                    background: $white;
+                    color: $black;
+                   
+                    &.avatar{
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        background: transparent; 
+                        padding: 0 !important;
+                        border: none;
+                     }
+                }
+                
             }
-            a:nth-child(2) {
-                background: $white;
-                color: $black;
-            }
+            
         }
     }
 }

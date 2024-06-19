@@ -1,236 +1,113 @@
-@import '../frontend/variables';
-@import '../frontend/reset';
-@import './checkbox';
+@import "./reset";
 
 
-*,
-*::after,
-*::before {
-    font-family: "Inter", sans-serif;
-}
 
-img{
-    color: transparent;
-}
-
-h1 {
-    color: $main_500;
-}
-
-body {
-    min-height: 100vh;
-    background: $bg_white;
-}
-
-input:focus{
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-
-@mixin media-size($size) {
-    @if $size == phone {
-        @media (max-width: 768px) {
-            @content;
-        }
-    } @else if $size == tablet {
-        @media (min-width: 769px) and (max-width: 999) {
-            @content;
-        }
-    } @else if $size == tablet-landscape-up {
-        @media (min-width: 1000px) {
-            @content;
-        }
-    }
-}
-
-.alert_x {
-    direction: rtl;
-    .notyf__message {
-        padding-inline: 10px;
-        font-size: 14px !important;
-    }
-}
-
-.main_login {
+.form_container {
+    height: auto;
+    max-width: 460px;
     width: 100%;
-    height: 100vh;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: grid;
-    direction: rtl;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    .box_1 {
-        background: $bg_white;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        
-        .box_form {
-            width: calc(100% - 30px);
-            max-width: 340px;
-            height: auto;
-            padding-block: 20px;
-            //background: rgba(61, 61, 61, 0.178);
-            //border-radius: 16px;
-            margin-top: 150px;
-            h1 {
-                text-align: center;
-                color: #040e17;
-                font-size: 30px;
-                text-transform: capitalize;
-            }
-            p {
-                text-align: center;
-                margin-top: 20px;
-                margin-bottom: 40px;
-                color: #040e17;
-                text-transform: capitalize;
-            }
-            form {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                .bx_form {
-                    height: auto;
-                    width: 100%;
-                    //background: blue;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    position: relative;
-                    &:last-child {
-                        margin-top: 10px;
-                    }
-                    
-                    input {
-                        height: 40px;
-                        background: $white;
-                        border: 1px solid #d9d9d9;
-                        border-radius: 4px;
-                        color: $black;
-                        padding-inline: 20px;
-                        direction: ltr;
-                        &.error_password {
-                            border: 1px solid #ef665b;
-                        }
-                        
-                        
-                    }
-                    input.error_password ~ span{
-                        color: #ef665b;
-                    }
-                    button {
-                        width: 100%;
-                        height: 40px;
-                        border: none;
-                        background: $black;
-                        color: $white;
-                        border-radius: 4px;
-                        font-size: 14px;
-                        cursor: pointer;
-                        font-weight: 600;
-                        text-transform: capitalize;
-
-                    }
-                }
-            }
-            
-            .line_or {
-                width: calc(100%);
-                height: 1px;
-                background: #d9d9d9;
-                margin-block: 30px;
-                margin-inline: auto;
-                position: relative;
-                &::after {
-                    content: "or";
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    height: 33px;
-                    width: 40px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: $bg_white;
-                    font-size: 12px;
-                    text-transform: uppercase;
-                    color: #888;
-                }
-            }
-            .btns_home_and_new_accont {
-                width: 100%;
-                height: 40px;
-                //background: #ef665b;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-                
-                .create_new_accont_link,.go_to_home_link {
-                    display: flex;
-                    background: $black;
-                    height: 100%;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 0;
-                    color: $white;
-                    font-size: 14px;
-                    font-weight: 600;
-                    text-transform: capitalize;
-                    border-radius: 4px;
-                }
-                .go_to_home_link{
-                    border: 1px solid #d9d9d9;
-                    background: $white;
-                    color: $black;
-                }
-            }
-        }
+    background: $bg_white;
+    margin: 0 auto;
+    transform: translateY(100px);
+    display: flex;
+    flex-direction: column;
+    gap: $space;
+    padding-block: $space * 3;
+    padding-inline: $space;
+    //border-radius: 12px;
+    //box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    h1 {
+        font-size: 35px;
+        //text-align: center;
+        text-transform: uppercase;
     }
-    
-}
-
-@include media-size(phone) {
-    .main_login {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        .box_1 {
-            position: fixed;
-            z-index: 10;
-            width: calc(100vw - 20px);
-            height: calc(100vh - 20px);
-            inset: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 16px;
-        }
-    }
-    .main_login .box_1 .box_form h1 {
-        font-size: 25px;
-    }
-    .main_login .box_1 .box_form p {
+    p {
+        //text-align: center;
+        color: #757575;
         font-size: 14px;
+        text-transform: capitalize;
     }
-    .main_login .box_1 .box_form form .bx_form label {
-        font-size: 12px;
+    small{
+        color: #757575; 
     }
-    .main_login .box_1 .box_form form .bx_form input {
-        height: 40px;
+    .form_box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space $space * 0.6;
+        margin-block: $space * 0.5;
+
+        .box {
+            height: auto;
+            //background: rgb(51, 51, 51);
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            position: relative;
+            .icon{
+                height: 100%;
+                aspect-ratio: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            input {
+                width: 100%;
+                height: 36px;
+                border: 1px solid #ddd;
+                background: $white;
+                padding-inline: 12px;
+                border-radius: 4px;
+                font-size: 14px;
+                color: $black;
+            }
+            &.column_2 {
+                grid-column: 1/-1;
+            }
+
+            button {
+                width: 100%;
+                height: 36px;
+                border: none;
+                background: $main_500;
+                color: $white;
+                border-radius: 4px;
+                font-size: 14px;
+                text-transform: capitalize;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        }
     }
-    .main_login .box_1 .box_form form .bx_form {
-        gap: 15px;
+
+    span.line {
+        height: 1px;
+        background: #ddd;
+        width: 100%;
+        margin-bottom: 10px;
     }
-    .container small {
-        font-size: 12px;
+    .btns {
+        display: flex;
+        height: 36px;
+        gap: $space;
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $black;
+            flex: 1;
+            color: $white;
+            border-radius: 4px;
+            font-size: 14px;
+            text-transform: capitalize;
+            &:nth-child(1) {
+                background: $white;
+                color: $black;
+                border: 1px solid #ddd;
+            }
+        }
     }
-    .main_login .box_1 .box_form form .bx_form button {
-        height: 40px;
-    }
-    .main_login .box_1 .box_form .btns_home_and_new_accont {
-        height: 40px;
-    }
-    
 }

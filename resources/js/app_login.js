@@ -10,6 +10,7 @@ input_forms.forEach((el) => {
 
 
 window.addEventListener('load',()=>{
+
     input_forms.forEach(el=>{
         el.value = ''
     })

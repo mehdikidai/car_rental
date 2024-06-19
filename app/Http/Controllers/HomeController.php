@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,7 @@ class HomeController extends Controller
         ])->orderBy('id', 'DESC')->take(9)->get();
 
         $companies = Company::all();
+
 
         return view('frontend.home', compact('cars','companies'));
 

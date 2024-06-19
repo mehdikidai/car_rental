@@ -9,18 +9,7 @@
         <x-container>
 
             <div class="checkout_box">
-                @if (session('ok'))
-                    <script>
-                        const notyf = new Notyf({
-                            duration: 2000,
-                            position: {
-                                x: 'center',
-                                y: 'bottom',
-                            }
-                        });
-                        notyf.success('{{ session('ok') }}');
-                    </script>
-                @endif
+                
                 @if (session('error_rental'))
                     <script>
                         const notyf = new Notyf({
@@ -81,6 +70,12 @@
                 </div>
                 <div class="info">
                     <x-box-car :carInfo="$car" />
+                    <div class="info_txt">
+                        <p>
+                            {{ $car->description  }}
+                        </p>
+                        
+                    </div>
                 </div>
             </div>
 

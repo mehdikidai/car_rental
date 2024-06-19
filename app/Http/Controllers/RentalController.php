@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Customer;
 use App\Models\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,8 @@ class RentalController extends Controller
         $allDays = $rental_date->diffInDays($return_date);
         $car     = Car::findOrFail($data['car_id']);
         $total_price = $car->rental_price * $allDays;
-        $user_id = Auth::user()->id;
+
+        $customer_id =  Auth::user()->customer->id;
 
 
         $overlappingRentals = Rental::where('car_id', $request->input('car_id'))
@@ -42,13 +44,12 @@ class RentalController extends Controller
         if ($overlappingRentals) {
 
             return back()->with('error_rental', 'You have been renting successfully');
-
         }
 
         Rental::create([
 
             'car_id' => $data['car_id'],
-            'customer_id' => $user_id,
+            'customer_id' => $customer_id,
             'rental_date' => $rental_date,
             'return_date' => $return_date,
             'total_price' => $total_price,
@@ -56,7 +57,7 @@ class RentalController extends Controller
 
         ]);
 
-        return back()->with('ok', 'You have been renting successfully');
+        return redirect()->route('profile.show-page')->with('ok', 'You have been renting successfully');
     }
 
 
@@ -67,7 +68,7 @@ class RentalController extends Controller
 
         $rentals = Rental::where('car_id', $request->car_id)->get();
         $bookedDays = [];
-        
+
         foreach ($rentals as $rental) {
             $start = Carbon::parse($rental->rental_date);
             $end = Carbon::parse($rental->return_date);
@@ -79,6 +80,23 @@ class RentalController extends Controller
         }
 
         return response()->json(['booked_days' => $bookedDays], 200);
+    }
+
+    public function destroy(Request $request)
+    {
+
+
+        $id = $request->id;
+        $rental = Rental::find($id);
+        $isOk = $rental->delete();
+
+        if (!$isOk) {
+
+           return abort(403);
+
+        }
+        
+        return back()->with('success', 'Car deleted successfully');
 
     }
 }

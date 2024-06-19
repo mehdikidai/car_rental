@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('rentals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('car_id')->constrained('cars');
-            $table->foreignId('customer_id')->constrained('customers');
+            $table->unsignedBigInteger('car_id');
+            $table->unsignedBigInteger('customer_id');
             $table->date('rental_date');
             $table->date('return_date');
             $table->integer('days');
             $table->decimal('total_price', 8, 2);
             $table->timestamps();
+            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

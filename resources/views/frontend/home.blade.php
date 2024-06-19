@@ -1,6 +1,6 @@
 <x-layout-frontend>
     <x-slot:title>
-        page frontend.home
+        Page Home
     </x-slot:title>
     <div class="cover">
 

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -16,7 +19,7 @@ class AuthController extends Controller
     }
 
 
-     /**
+    /**
      *   login -------------
      */
 
@@ -24,25 +27,26 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-        $user = $request->validate([
-
-            'email'=> 'required|email',
-            'password' => 'required|min:8|max:30'
-
+        $request->validate([
+            'email_x' => 'required|email',
+            'password_x' => 'required|min:8|max:30'
         ]);
 
-        if (Auth::attempt($user,true)) {
+        $data = [
+            'email' => $request->input('email_x'),
+            'password' => $request->input('password_x')
+        ];
+
+        if (Auth::attempt($data, true)) {
 
             $request->session()->regenerate();
             return redirect()->route('frontend.home');
-
-        } 
+        }
 
         return back()->withInput()->with('error', 'test');
-
     }
 
-     /**
+    /**
      *   logout -------------
      */
 
@@ -50,9 +54,14 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        
-        return redirect()->route('frontend.home')->with('logout', 'You have been renting successfully');
 
+        return redirect()->route('frontend.home')->with('logout', 'You have been renting successfully');
+    }
+
+
+    public function  register()
+    {
+        return view('auth.sign-up');
     }
 
     /**
@@ -68,7 +77,30 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'f_name' => 'required|string|max:255',
+            'l_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'address' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'phone' => 'required|string|unique:customers,phone|max:13',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = User::create([
+            'name' => $request->input('f_name') . ' ' . $request->input('l_name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password'))
+        ]);
+
+        Customer::create([
+            'user_id' => $user->id,
+            'phone' => $request->input('phone'),
+            'address' => $request->input('address'),
+            'city' => $request->input('city')
+        ]);
+
+        return redirect()->route('login')->with('success', 'User created successfully.');
     }
 
     /**

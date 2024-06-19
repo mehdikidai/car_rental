@@ -8,45 +8,51 @@ use App\Http\Controllers\RentalController;
 use App\Http\Controllers\SearchController;
 use App\Models\ModelCar;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
-
 
 Route::controller(CarController::class)->group(function () {
 
     Route::get('/cars', 'index')->name('frontend.cars');
     Route::get('/car/{id}', 'show')->middleware('auth')->name('car.show')->where(['id' => '[0-9]+']);
+    
 });
-
 
 
 Route::post('/rental', [RentalController::class, 'store'])->name('rental.store');
 
+Route::delete('/rental/{id}',[RentalController::class,'destroy'])->name('rental.destroy')->where(['id' => '[0-9]+']);
 
-Route::get('/get-booked-days/{car_id}', [RentalController::class,'getBookedDays'])->where(['id' => '[0-9]+']);
 
+Route::get('/get-booked-days/{car_id}', [RentalController::class, 'getBookedDays'])->where(['id' => '[0-9]+']);
 
 Route::get('/search', [SearchController::class, 'show'])->name('search.frontend.home');
-
-
 
 Route::controller(AuthController::class)->group(function () {
 
     Route::middleware(['guest'])->group(function () {
 
         Route::get('/login', 'index')->name('login');
+        Route::get('/register', 'register')->name('register');
+        Route::post('/register', 'store')->name('user.store');
         Route::post('/login', 'login')->name('login.login');
-
     });
 
     Route::middleware(['auth'])->group(function () {
 
         Route::get('/logout', 'logout')->name('logout');
-
     });
-
-
 });
+
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/profile', [ProfileController::class, 'showPage'])->name('profile.show-page');
+});
+
+
 
 
 

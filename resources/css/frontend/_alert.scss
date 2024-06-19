@@ -1,22 +1,98 @@
 .notyf__message {
-	vertical-align: middle;
-	position: relative;
-	opacity: 0;
-	line-height: 1.5em;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
+    vertical-align: middle;
+    position: relative;
+    opacity: 0;
+    line-height: 1.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .notyf__wrapper {
-
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-right: 15px;
-	border-radius: 4px;
-	font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    border-radius: 4px;
+    font-size: 14px;
 }
 
 .notyf__icon {
-	transform: scale(0.85) !important;
+    transform: scale(0.8) !important;
 }
+
+.swal2-icon.swal2-warning {
+    transform: scale(0.7) !important;
+}
+.swal2-title {
+    margin: 0 0 0.3em;
+    padding: 0;
+    color: $color_text;
+    font-size: 1.3em;
+}
+
+.swal2-html-container {
+    font-size: 16px !important;
+	color: $color_text;
+}
+
+.swal2-icon {
+    position: relative;
+    box-sizing: content-box;
+    justify-content: center;
+    width: 5em;
+    height: 5em;
+    margin: 10px auto 10px;
+    line-height: 5em;
+}
+
+.swal2-popup {
+    width: 25em;
+    max-width: 100%;
+    padding: $space;
+    border: none;
+    border-radius: 5px;
+    background: $white;
+}
+
+.swal2-actions {
+    button {
+        padding: 8px 16px;
+        box-shadow: none;
+        font-weight: 400;
+		font-size: 14px !important;
+		margin: 0 !important;
+		//background: $black !important;
+		&:focus{
+			outline: none;
+			box-shadow: none;
+		}
+    }
+}
+
+
+.swal2-actions {
+	
+	margin: 20px auto 0;
+	padding: 0;
+	padding: 0;
+	gap: 10px;
+}
+
+.swal2-icon{
+	border:0 !important;
+	background: none;
+	//background: red;
+	width: 60px;
+	height: 60px;
+	i{
+	   font-size: 50px;
+	   &.warning{
+		color: #f8bb86;
+	   }
+	}
+}
+
+.swal2-top{
+	padding-top: 100px;
+}
+

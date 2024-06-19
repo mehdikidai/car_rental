@@ -1,0 +1,146 @@
+.profile-page-card {
+    min-height: 210px;
+    background: $white;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-block: $space;
+    .user_profile {
+        width: auto;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        top: -55px;
+        transform: translateX(-50%);
+        //background: blue;
+        display: flex;
+        flex-direction: column;
+        gap: $space * 0.5;
+        align-items: center;
+        .photo {
+            //background: yellow;
+            width: 110px;
+            aspect-ratio: 1;
+            display: flex;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        span {
+            clear: both;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 18px;
+            color: $color_text;
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            gap: $space * 0.5;
+            i {
+                font-size: 20px;
+                color: #0abaff;
+            }
+        }
+    }
+    .info_user {
+        height: 60px;
+        width: 80%;
+        //background: red;
+        display: grid;
+        grid-template: 1fr /1fr 1fr 1fr;
+        gap: $space;
+        .box {
+            background: $white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i {
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translate(-50%, -50%);
+                padding: 0 15px;
+                background: $white;
+                font-size: 22px;
+                color: $color_text;
+            }
+            small {
+                font-size: 14px;
+                color: $color_text;
+                
+            }
+        }
+    }
+}
+
+#customers {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    table-layout: fixed;
+}
+
+#customers td,
+#customers th {
+    border-bottom: 1px solid #ddd;
+    //border: none;
+    padding:12px;
+    text-transform: capitalize;
+    &:last-child {
+        width: 50px;
+        //background: red;
+        position: relative;
+    }
+}
+
+#customers th{
+    border-bottom: none;
+    &:nth-child(1){
+        //background: blue;
+        border-radius: 4px 0 0 4px;
+    }
+    &:last-child{
+        //background: blue;
+        border-radius:0 4px 4px 0;
+    }
+}
+
+#customers td {
+    color: $color_text;
+    border-top: none;
+    form{
+        //background: #0abaff;
+        width: 24px;
+        height: 24px;
+    }
+    button{
+        
+        background: transparent;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        i{
+            font-size: 20px;
+            color: $color_text;
+        }
+    }
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $black;
+    color: white;
+}

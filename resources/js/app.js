@@ -7,13 +7,20 @@ import "@splidejs/splide/css";
 import Splide from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 //import { areDatesOutsideRange } from "./helper";
-//import axios from "axios";
-//import moment from 'moment';
+import axios from "axios";
+import moment from "moment";
 
+async function getBookedDays() {
+    const Id = document.getElementById("input_car_id").value;
 
+    const res = await axios.get(`/get-booked-days/${Id}`);
 
+    if (res.status === 200) {
+        return await res.data.booked_days;
+    }
 
-
+    return [];
+}
 
 let today = new Date();
 let tomorrow = new Date();
@@ -110,37 +117,84 @@ if (document.getElementById("rental_date")) {
         }
     }
 
-    let dpMin_2, dpMax_2;
+    getBookedDays().then((bookedDays) => {
+        const newBookedDays = bookedDays.map((el) =>
+            moment(el).format("MM-DD-YYYY")
+        );
 
-    dpMin_2 = new AirDatepicker("#rental_date", {
-        locale: localeEn,
-        autoClose: true,
-        isMobile: false,
-        minDate: tomorrow,
-        dateFormat: "yyyy-MM-dd",
-        onSelect({ date }) {
-            rentalDate = date;
-            x(rentalDate, returnDate);
-            let newMaxDate = new Date(date);
-            newMaxDate.setDate(newMaxDate.getDate() + 1);
-            dpMax_2.update({
-                minDate: newMaxDate,
-            });
-        }
+        let dpMin_2, dpMax_2;
+
+        dpMin_2 = new AirDatepicker("#rental_date", {
+            locale: localeEn,
+            autoClose: true,
+            isMobile: false,
+            minDate: tomorrow,
+            dateFormat: "yyyy-MM-dd",
+            onSelect({ date }) {
+                rentalDate = date;
+                x(rentalDate, returnDate);
+                let newMaxDate = new Date(date);
+                newMaxDate.setDate(newMaxDate.getDate() + 1);
+                dpMax_2.update({
+                    minDate: newMaxDate,
+                });
+            },
+            onRenderCell({ date }) {
+                if (newBookedDays.includes(moment(date).format("MM-DD-YYYY"))) {
+                    return {
+                        disabled: true,
+                    };
+                }
+            },
+        });
+
+        dpMax_2 = new AirDatepicker("#return_date", {
+            locale: localeEn,
+            autoClose: true,
+            isMobile: false,
+            minDate: tomorrow,
+            dateFormat: "yyyy-MM-dd",
+            onSelect({ date }) {
+                returnDate = date;
+                x(rentalDate, returnDate);
+                dpMin_2.update({
+                    maxDate: date,
+                });
+            },
+            onRenderCell({ date }) {
+                if (newBookedDays.includes(moment(date).format("MM-DD-YYYY"))) {
+                    return {
+                        disabled: true,
+                    };
+                }
+            },
+        });
     });
+}
 
-    dpMax_2 = new AirDatepicker("#return_date", {
-        locale: localeEn,
-        autoClose: true,
-        isMobile: false,
-        minDate: tomorrow,
-        dateFormat: "yyyy-MM-dd",
-        onSelect({ date }) {
-            returnDate = date;
-            x(rentalDate, returnDate);
-            dpMin_2.update({
-                maxDate: date,
+const formDeleteRental = document.querySelectorAll(".form_delete_rental");
+
+if (formDeleteRental) {
+    formDeleteRental.forEach((f) => {
+        f.addEventListener("submit", (e) => {
+            e.preventDefault();
+            Swal.fire({
+                title: "Are you sure?",
+                iconHtml:
+                    '<i class="material-symbols-outlined warning">error</i>',
+                customClass: {
+                    icon_alert: "no-border",
+                },
+                showCancelButton: true,
+                confirmButtonColor: "#e63946",
+                cancelButtonColor: "#457b9d",
+                confirmButtonText: "Yes !",
+                position: "top",
+            }).then(({ isConfirmed }) => {
+                if (isConfirmed) {
+                    f.submit();
+                }
             });
-        },
+        });
     });
 }

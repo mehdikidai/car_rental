@@ -22,12 +22,13 @@ class CarController extends Controller
 
     public function show(Request $request)
     {
-        
+
         $car = Car::findOrFail($request->id);
 
         //dd($car);
 
-        return view('frontend.car',compact('car'));
-
+        return view('frontend.car', compact('car'));
     }
+
+    
 }

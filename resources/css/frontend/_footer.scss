@@ -1,4 +1,54 @@
 .footer{
-    height: 200px;
+    height: auto;
     background: $black;
+    padding-top: $space*3;
+    .boxs{
+        display: grid;
+        grid-template-columns: 40% 1fr 1fr;
+        grid-template-rows: max-content max-content;
+        gap: $space;
+        .box{
+            min-height: 160px;
+            //background: red;
+            display: flex;
+            flex-direction: column;
+            gap: $space;
+            padding-bottom: $space;
+            &:last-child{
+                grid-column: 1/-1;
+                min-height: 40px;
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                padding-bottom: 0;
+            }
+            p{
+                color: #ffffff96;
+                font-size: 14px;
+            }
+            h2{
+                font-size: 18px;
+                color: $white;
+                font-weight: 600;
+            }
+            ul{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                li{
+                    a{
+                        color: #ffffff96 !important;
+                        text-transform: capitalize;
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        gap: 6px;
+                    
+                        i{
+                            font-size: 14px;
+                            transform: translateY(2px);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

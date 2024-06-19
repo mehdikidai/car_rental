@@ -13,6 +13,7 @@
 @import "./car";
 @import "./footer";
 @import "./alert";
+@import "./profile";
 
 *,
 *::after,
@@ -52,7 +53,7 @@ body {
     h2 {
         font-size: 30px;
         text-transform: capitalize;
-        color: $black;
+        color: $color_text;
         font-weight: 700;
     }
 }
