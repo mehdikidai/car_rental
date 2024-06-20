@@ -62,7 +62,8 @@
 		font-size: 14px !important;
 		margin: 0 !important;
 		border-radius: 4px !important;
-		//background: $black !important;
+		//background: rgb(208, 208, 208) !important;
+        //color: $color_text !important;
 		&:focus{
 			outline: none;
 			box-shadow: none;
@@ -100,7 +101,7 @@
 
 .swal2-actions {
 	display: grid;
-	margin: 1.25em auto 0;
+	margin: 2em auto 0;
 	padding: 0;
 	grid-template-columns: 1fr 1fr;
 	gap: $space;

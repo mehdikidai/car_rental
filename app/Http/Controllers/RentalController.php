@@ -88,15 +88,21 @@ class RentalController extends Controller
 
         $id = $request->id;
         $rental = Rental::find($id);
+
+        if (auth()->user()->customer->id !== $rental->customer_id) {
+
+            return abort(403);
+
+        }
+
         $isOk = $rental->delete();
 
         if (!$isOk) {
 
-           return abort(403);
-
+            return abort(403);
         }
-        
-        return back()->with('success', 'Car deleted successfully');
 
+        return back()->with('success', 'Car deleted successfully');
+        
     }
 }
