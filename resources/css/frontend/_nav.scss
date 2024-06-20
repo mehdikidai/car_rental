@@ -1,6 +1,6 @@
 header {
     background: $black;
-    &.route_home{
+    &.route_home {
         background: transparent;
     }
     z-index: 99;
@@ -11,7 +11,6 @@ header {
         justify-content: space-between;
         align-items: center;
         margin: 0 auto;
-
 
         .logo {
             //padding: 4px 12px;
@@ -25,11 +24,54 @@ header {
         }
         ul.links {
             display: flex;
-            gap: $space * 3;
+            gap: $space * 2;
             li {
                 a {
                     color: $white;
                     text-transform: capitalize;
+                }
+                &.lang_btn {
+                    position: relative;
+                    a#lang_btn {
+                    
+                       
+                        &.active + ul {
+                            //background: blue;
+                            transform: translateY(100%) scale(1);
+                            opacity: 1;
+                        }
+                    }
+                    ul {
+                        position: absolute;
+                        background: $white;
+                        bottom: -6px;
+                        padding: 12px;
+                        width: 130px;
+                        border-radius: 4px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                        transform-origin: 0 0 0;
+                        transform: translateY(100%) scale(0);
+                        opacity: 0;
+                        transition:all 0.3s cubic-bezier(.46,.03,.52,.96);
+                        li {
+                            a {
+                                color: $color_text;
+                                //background: blue;
+                                display: flex;
+                                font-size: 14px;
+                                display: flex;
+                                align-items: center;
+                                gap: 6px;
+                                img {
+                                    width: 16px;
+                                    height: 16px;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -48,19 +90,17 @@ header {
                 &:nth-child(2) {
                     background: $white;
                     color: $black;
-                   
-                    &.avatar{
+
+                    &.avatar {
                         width: 32px;
                         height: 32px;
                         border-radius: 50%;
-                        background: transparent; 
+                        background: transparent;
                         padding: 0 !important;
                         border: none;
-                     }
+                    }
                 }
-                
             }
-            
         }
     }
 }

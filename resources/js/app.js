@@ -198,3 +198,11 @@ if (formDeleteRental) {
         });
     });
 }
+
+
+const langBtn = document.getElementById('lang_btn')
+
+langBtn.addEventListener('click',function(){
+    console.log(this)
+    this.classList.toggle('active')
+})

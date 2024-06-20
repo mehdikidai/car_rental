@@ -1,14 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CarController;
 use App\Models\Car;
+use App\Models\ModelCar;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\SearchController;
-use App\Models\ModelCar;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LanguageController;
+
+
+
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 
@@ -37,11 +41,13 @@ Route::controller(AuthController::class)->group(function () {
         Route::get('/register', 'register')->name('register');
         Route::post('/register', 'store')->name('user.store');
         Route::post('/login', 'login')->name('login.login');
+
     });
 
     Route::middleware(['auth'])->group(function () {
 
         Route::get('/logout', 'logout')->name('logout');
+        
     });
 });
 
@@ -53,11 +59,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
-
-
-
-
+Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('lang.switch');
 
 
 

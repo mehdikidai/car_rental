@@ -8,6 +8,7 @@ use App\Models\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Gate;
 
 class RentalController extends Controller
 {
@@ -82,18 +83,14 @@ class RentalController extends Controller
         return response()->json(['booked_days' => $bookedDays], 200);
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request,Rental $r)
     {
 
 
+        
         $id = $request->id;
         $rental = Rental::find($id);
 
-        if (auth()->user()->customer->id !== $rental->customer_id) {
-
-            return abort(403);
-
-        }
 
         $isOk = $rental->delete();
 

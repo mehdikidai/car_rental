@@ -4,7 +4,7 @@
         Page Login
     </x-slot:title>
     
-    <h1>Login.</h1>
+    <h1>{{ __('t.login') }}</h1>
     <p>Lorem ipsum dolor sit.</p>
     <form action="{{ route('login.login') }}" method="post" id="form_login" autocomplete="off">
         @csrf
@@ -18,7 +18,7 @@
             </div>
             
             <div class="box column_2">
-                <button type="submit">sing up</button>
+                <button type="submit">{{ __('t.login') }}</button>
             </div>
         </div>
     </form>

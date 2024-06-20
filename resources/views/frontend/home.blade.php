@@ -9,25 +9,21 @@
         <img src="{{ asset('images/bg_cover.jpg') }}" alt="a" class="photo_cover">
         <x-container>
             <div class="cover-content">
-                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing ?</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad natus dolorem, eos vero quidem inventore
-                    impedit necessitatibus nemo suscipit voluptate tempore eveniet error totam quo quisquam ea optio non
-                    eius.</p>
+                <h1>{{ __('t.Rent the Perfect Car Easily and Quickly') }}</h1>
+                <p>{{ Str::of( __('t.cover text'))->words(35, ' ...')  }}</p>
                 <div class="booking-section">
-                    <form action="{{ route('search.frontend.home') }}" method="get">
+                    <form action="{{  route('search.frontend.home') }}" method="get">
                         
                         <div class="box-form">
                             <label for="picktime">
                                 <i class="material-symbols-outlined">directions_car</i>
-                                Date de réservation
+                                @lang('t.select brand')
                             </label>
                             <span>
                                 <select id="cars" name="company_id">
                                     @foreach ($companies as $company)
                                         <option value="{{$company->id}}">{{$company->name}}</option>
                                     @endforeach
-
-
                                 </select>
                                 <i class="material-symbols-outlined">arrow_drop_down</i>
                             </span>
@@ -38,21 +34,21 @@
                         <div class="box-form">
                             <label for="picktime">
                                 <i class="material-symbols-outlined">calendar_month</i>
-                                Date de réservation
+                                @lang('t.Booking date')
                             </label>
-                            <input type="text" name="date_star" id="date_star" placeholder="date de réservation">
+                            <input type="text" name="date_star" id="date_star" placeholder="{{ __('t.Booking date') }}">
                         </div>
 
                         <div class="box-form">
                             <label for="picktime">
                                 <i class="material-symbols-outlined">calendar_month</i>
-                                Date de réservation
+                                @lang('t.Return date')
                             </label>
-                            <input type="text" name="date_end" id="date_end" placeholder="date de réservation">
+                            <input type="text" name="date_end" id="date_end" placeholder="{{ __('t.Return date') }}">
                         </div>
 
                         <div class="box-form">
-                            <button>recherche</button>
+                            <button>@lang('t.research')</button>
                         </div>
                     </form>
                 </div>
@@ -96,7 +92,7 @@
 
     <x-space h="20" />
     <x-container>
-        <x-tit txt="available cars"></x-tit>
+        <x-tit :txt="__('t.titles.available cars')"></x-tit>
     </x-container>
     <x-space h="20" />
     <x-container>
@@ -114,7 +110,7 @@
     </x-container>
     <x-space h="50" />
     <x-container>
-        <x-tit txt="available cars"></x-tit>
+        <x-tit :txt=" __('t.titles.Quick and easy car rental')"></x-tit>
     </x-container>
     <x-space h="20" />
     <x-container>

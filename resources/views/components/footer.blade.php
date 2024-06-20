@@ -6,25 +6,25 @@
                 <div class="box">
                     <x-logo/>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit tempore harum natus nostrum nulla ipsam!
+                        @lang('t.footer.text_footer')
                     </p>
                 </div>
                 <div class="box">
-                    <h2>Lorem, ipsum.</h2>
+                    <h2>@lang('t.footer.Links')</h2>
                     <ul>
-                        <li><a href="#">home</a></li>
-                        <li><a href="#">cars</a></li>
-                        <li><a href="#">about us</a></li>
+                        <li><a href="{{ route('frontend.home') }}">@lang('t.home')</a></li>
+                        <li><a href="{{ route('frontend.cars') }}">@lang('t.cars')</a></li>
+                        <li><a href="#">@lang('t.contact')</a></li>
                         
                     </ul>
                 </div>
                 <div class="box">
-                    <h2>Lorem, ipsum.</h2>
+                    <h2>@lang('t.footer.social media')</h2>
                     <ul>
                     
-                        <li><a href="#"><i class="material-symbols-outlined">sms</i>home</a></li>
-                        <li><a href="#"><i class="material-symbols-outlined">sms</i>cars</a></li>
-                        <li><a href="#"><i class="material-symbols-outlined">sms</i>about us</a></li>
+                        <li><a href="#"><i class="material-symbols-outlined">phone</i>0605805993</a></li>
+                        <li><a href="#"><i class="material-symbols-outlined">mail</i>mehdikidai@gmail.com</a></li>
+                        
                        
                         
                     </ul>

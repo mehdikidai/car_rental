@@ -25,9 +25,9 @@
             <div class="profile-page-card">
                 <div class="user_profile">
                     <div class="photo"><img src="{{ asset('images/avatar/49.png') }}" alt="user"></div>
-                    <span class="name">{{ auth()->user()->name }} <i
-                            class="material-symbols-outlined">check_circle</i></span>
+                    <span class="name">{{ auth()->user()->name }} <i class="material-symbols-outlined">check_circle</i></span>
 
+                    
                 </div>
                 <div class="info_user">
                     <div class="box">
