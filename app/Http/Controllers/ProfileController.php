@@ -40,7 +40,7 @@ class ProfileController extends Controller
             ->paginate(4);
 
 
-        $user = User::with(['customer'=>fn($q)=>$q->select('id','user_id','phone','address')])->find(1);
+        $user = User::with(['customer'=>fn($q)=>$q->select('id','user_id','phone','address')])->find(auth()->user()->id);
 
 
         if ($my_cars->currentPage() > $my_cars->lastPage()) {

@@ -40,6 +40,12 @@ class AuthController extends Controller
         if (Auth::attempt($data, true)) {
 
             $request->session()->regenerate();
+            
+            if (Auth::user()->is_admin) {
+
+                return redirect()->route('backend.home');
+
+            }
             return redirect()->route('frontend.home');
         }
 
@@ -100,7 +106,7 @@ class AuthController extends Controller
             'city' => $request->input('city')
         ]);
 
-        return redirect()->route('login')->with('success', 'User created successfully.');
+        return redirect()->route('login')->with('email',$request->email)->with('success', 'User created successfully.');
     }
 
     /**

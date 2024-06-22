@@ -21,6 +21,7 @@
                             </label>
                             <span>
                                 <select id="cars" name="company_id">
+                                    <option value="">all</option>
                                     @foreach ($companies as $company)
                                         <option value="{{$company->id}}">{{$company->name}}</option>
                                     @endforeach
@@ -36,7 +37,7 @@
                                 <i class="material-symbols-outlined">calendar_month</i>
                                 @lang('t.Booking date')
                             </label>
-                            <input type="text" name="date_star" id="date_star" placeholder="{{ __('t.Booking date') }}">
+                            <input type="text" name="start_date" id="date_star" placeholder="{{ __('t.Booking date') }}">
                         </div>
 
                         <div class="box-form">
@@ -44,7 +45,7 @@
                                 <i class="material-symbols-outlined">calendar_month</i>
                                 @lang('t.Return date')
                             </label>
-                            <input type="text" name="date_end" id="date_end" placeholder="{{ __('t.Return date') }}">
+                            <input type="text" name="end_date" id="date_end" placeholder="{{ __('t.Return date') }}">
                         </div>
 
                         <div class="box-form">
@@ -116,6 +117,6 @@
     <x-container>
         <x-promises></x-promises>
     </x-container>
-    <x-space h="50" />
+    <x-space h="100" />
     <x-footer />
 </x-layout-frontend>

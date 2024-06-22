@@ -26,11 +26,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123456789')
         ]);
 
+
+
         Company::factory(7)->create();
         ModelCar::factory(10)->create();
         User::factory(1)->create();
         Customer::factory(1)->create();
-        Car::factory()->count(90)->create();
+        Car::factory()->count(40)->create();
 
     }
 }

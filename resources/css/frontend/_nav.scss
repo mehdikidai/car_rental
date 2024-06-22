@@ -1,7 +1,8 @@
 header {
     background: $black;
     &.route_home {
-        background: transparent;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
     }
     z-index: 99;
     .nav {

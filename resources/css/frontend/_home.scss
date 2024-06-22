@@ -97,6 +97,8 @@
                     select {
                         -webkit-appearance: none;
                         -moz-appearance: none;
+                        text-transform: capitalize;
+                        font-size: 14px;
                     }
                     span {
                         position: relative;

@@ -1,0 +1,21 @@
+.ul_page_search{
+    //background: red;
+    margin: $space*4 auto;
+    li{
+        background: $black;
+        width: 32px;
+        height: 32px;
+        border-radius: 4px;
+        &.active {
+            background: $main-500;
+        }
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            color: $white;
+        }
+    }
+}

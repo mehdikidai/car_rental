@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
-use App\Models\Customer;
 use App\Models\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -83,23 +82,27 @@ class RentalController extends Controller
         return response()->json(['booked_days' => $bookedDays], 200);
     }
 
-    public function destroy(Request $request,Rental $r)
+    public function destroy(Request $request)
     {
 
 
-        
         $id = $request->id;
         $rental = Rental::find($id);
 
+        if (!Gate::allows('del', $rental)) {
+
+
+            abort(403);
+
+        }
 
         $isOk = $rental->delete();
 
         if (!$isOk) {
 
-            return abort(403);
+            return back()->with('error', 'error');
         }
 
         return back()->with('success', 'Car deleted successfully');
-        
     }
 }

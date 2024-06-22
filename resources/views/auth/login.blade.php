@@ -10,7 +10,7 @@
         @csrf
         <div class="form_box">
             <div class="box column_2">
-                <input class="input_form" type="text" name="email_x" id="email_input" placeholder="Email" value="{{ old('email') }}">
+                <input class="input_form" type="text" name="email_x" id="email_input" placeholder="Email" value="{{ session('email') ? session('email') : old('email') }}">
             </div>
             <div class="box column_2">
 

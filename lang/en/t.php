@@ -16,6 +16,17 @@ return [
     'sign up' => 'sign up',
     'logout' => 'logout',
     'login' => 'login',
+    'checkout' => 'checkout',
+    'details' => 'details',
+    'rent new' => 'rent new',
+    'Price' => 'Price',
+    'days' =>  'days',
+    'Total' =>  'Total',
+    'Car' => 'Car',
+    'Model' => 'Model',
+    'Pickup Date' => 'Pickup Date',
+    'Duration' => 'Duration',
+    'Status' => 'Status',
     'titles' => [
         'available cars' => 'available cars',
         'Quick and easy car rental' => 'Quick and easy car rental'
