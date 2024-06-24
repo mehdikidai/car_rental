@@ -5,6 +5,9 @@ use App\Models\ModelCar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\backend\AuthController as BackendAuthController;
+use App\Http\Controllers\backend\CarController as BackendCarController;
+use App\Http\Controllers\backend\HomeController as BackendHomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\SearchController;
@@ -67,6 +70,22 @@ Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('lang
 
 Route::prefix('admin')->name('backend.')->middleware(['auth', 'is_admin'])->group(function () {
 
-    Route::get('/', fn () => view('backend.home'))->name('home');
+    Route::get('/', [BackendHomeController::class, 'index'])->name('home');
+
+    Route::get('/cars', [BackendCarController::class, 'index'])->name('cars');
     
+
+    Route::delete('/car/{id}', [BackendCarController::class, 'destroy'])->name('car.destroy');
+
+    Route::delete('/user/{id}', [BackendAuthController::class, 'destroy'])->name('user.destroy');
+
+    Route::put('/cars/{id}', [BackendCarController::class, 'update'])->name('car.update');
+
+    Route::get('/car/{id}/edit',[BackendCarController::class, 'edit'])->name('car.edit');
+    
+    Route::get('/car/create',[BackendCarController::class, 'create'])->name('car.create');
+
+    Route::post('/car',[BackendCarController::class, 'store'])->name('car.store');
+
+
 });

@@ -75,7 +75,7 @@
                         <tr>
                             <td><a href="{{ route('car.show',$car->car->id) }}">{{ $car->car->company->name }}</a></td>
                             <td>{{ $car->car->model->name }}</td>
-                            <td>{{ $car->created_at->diffForHumans() }}</td>
+                            <td>{{ $car->created_at->isoFormat('dddd,D MMMM Y') }}</td>
                             <td>{{ $car->rental_date }}</td>
                             <td>{{ $car->return_date }}</td>
                             <td>{{ $car->days }}</td>

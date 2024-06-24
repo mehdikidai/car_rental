@@ -34,11 +34,11 @@ return [
     ],
     'boxs' => [
         'Price Match Guarantee' => 'Garantie du meilleur prix',
-        'Found the same deal for less? Well match the price.' => 'Trouvé la même offre pour moins cher? Nous alignons le prix.',
+        'txt1' => 'Trouvé la même offre pour moins cher? Nous alignons le prix.',
         'No hidden fees' => 'Aucun frais caché',
-        'Know exactly what youre paying .' => 'Sachez exactement ce que vous payez.',
+        'txt2' => 'Sachez exactement ce que vous payez.',
         'Flexible rentals' => 'Locations flexibles',
-        'Cancel or change most bookings for free up to 48 hours before pick-up.' => 'Annulez ou modifiez la plupart des réservations gratuitement jusqu\'à 48 heures avant la prise en charge.'
+        'txt3' => 'Annulez ou modifiez la plupart des réservations gratuitement jusqu\'à 48 heures avant la prise en charge.'
     ],
     'footer' => [
         'text_footer' => 'Découvrez notre large sélection de véhicules conçus pour répondre à toutes vos exigences de conduite. Quels que soient vos besoins.',

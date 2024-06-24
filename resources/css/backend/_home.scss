@@ -17,9 +17,9 @@
             border-radius: 12px;
             gap: $space*2;
             .icon{
-                width: 70px;
-                height: 70px;
-                background: #d6e5fc;
+                width: 60px;
+                height: 60px;
+                background: transparent;
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
@@ -32,7 +32,7 @@
             .content_text{
                 //background: blue;
                 flex: 1;
-                height: 70px;
+                height: 60px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -43,11 +43,15 @@
                         font-size: 20px;
                         font-weight: 600;
                     }
-                    &:nth-child(3){
-                        color: #5c5c5c;
+                    &:nth-child(1){
+                        color: #717171;
                     }
                 }
             }
         }
+    }
+    .chart_div{
+        height: 200px;
+        background: red;
     }
 }

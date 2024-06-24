@@ -28,5 +28,11 @@ class AppServiceProvider extends ServiceProvider
             return $rental->customer->user->id === $user->id;
 
         });
+
+        Gate::define('isAdmin', function (User $user) {
+
+            return $user->is_admin;
+
+        });
     }
 }

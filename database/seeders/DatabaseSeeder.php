@@ -23,14 +23,15 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'mehdi kidai',
             'email' => 'mehdikidai@gmail.com',
-            'password' => Hash::make('123456789')
+            'password' => Hash::make('123456789'),
+            'is_admin' => 1
         ]);
 
 
 
         Company::factory(7)->create();
         ModelCar::factory(10)->create();
-        User::factory(1)->create();
+        //User::factory(1)->create();
         Customer::factory(1)->create();
         Car::factory()->count(40)->create();
 

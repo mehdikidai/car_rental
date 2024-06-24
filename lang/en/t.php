@@ -33,11 +33,11 @@ return [
     ],
     'boxs' => [
         'Price Match Guarantee' => 'Price Match Guarantee',
-        'Found the same deal for less? Well match the price.' => 'Found the same deal for less? Well match the price.',
+        'txt1' => 'Found the same deal for less? Well match the price.',
         'No hidden fees' => 'No hidden fees',
-        'Know exactly what youre paying .' => 'Know exactly what youre paying .',
+        'txt2' => 'Know exactly what youre paying',
         'Flexible rentals' => 'Flexible rentals',
-        'Cancel or change most bookings for free up to 48 hours before pick-up.' => 'Cancel or change most bookings for free up to 48 hours before pick-up.'
+        'txt3' => 'Cancel or change most bookings for free up to 48 hours before pick-up.'
     ],
     'footer' => [
         'text_footer' => 'Discover our wide selection of vehicles designed to meet all your driving requirements. Whatever your needs .',

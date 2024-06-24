@@ -1,12 +1,12 @@
-@props(['n','icon'])
+@props(['n','icon','txt','color'])
 
 <div class="box">
-    <div class="icon">
+    <div class="icon" style="background-color: {{ $color }}">
         <i class="material-symbols-rounded">{{$icon}}</i>
     </div>
     <div class="content_text">
-        <span>Bookings</span>
+        <span>{{$txt}}</span>
         <span>{{$n}}</span>
-        <span>Lorem, ipsum.</span>
+        
     </div>
 </div>

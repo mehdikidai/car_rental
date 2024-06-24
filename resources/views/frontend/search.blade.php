@@ -42,6 +42,10 @@
                     @endfor
                 </ul>
 
+            @else
+
+            <x-space h="80" />
+
             @endif
 
 

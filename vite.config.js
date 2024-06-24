@@ -11,6 +11,7 @@ export default defineConfig({
                 "resources/js/app_login.js",
                 "resources/js/alert.js",
                 "resources/css/backend/app.scss",
+                "resources/js/backend.js",
             ],
             refresh: true,
         }),

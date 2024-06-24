@@ -5,7 +5,8 @@
         <div class="div-img">
             <span class="name">{{ $carInfo->company->name }}</span>
             <span class="name name_tit">{{ $carInfo->model->name }}</span>
-            <img src="{{ $carInfo->photo }}" alt="aa">
+            
+            <img src="{{ asset('uploads') . '/' . $carInfo->photo }}" alt="aa">
         </div>
         <div class="div-info">
             <div class="info">
