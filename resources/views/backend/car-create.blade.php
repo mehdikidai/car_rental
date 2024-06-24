@@ -1,17 +1,10 @@
 <x-layout-dashboard>
     <div class="content_cars content">
+        
         <div class="boxs">
-            <form action="#" method="post">
-                <div class="box_f">
-                    <label class="txt" for="model_name">
-                        Model
-                    </label>
-                    <input type="text" value="{{ old('model_name') }}" id="model_id" name="model_name"
-                        placeholder="model">
-                </div>
-            </form>
-        </div>
-        <div class="boxs">
+            <x-tit txt="Add a new car"></x-tit>
+
+            <x-space h="20" />
             <form class="form" method="POST" action="{{ route('backend.car.store') }}" enctype="multipart/form-data">
 
                 <div class="box_f">
@@ -87,7 +80,27 @@
                 </div>
                 <div class="box_f">
                     @csrf
-                    <button class="btn_submit" type="submit">add car</button>
+                    <button class="btn_submit" type="submit">Add Car</button>
+                </div>
+            </form>
+        </div>
+        <x-space h="10" />
+        <div class="boxs">
+            <x-tit txt="Add a new company"></x-tit>
+
+            <x-space h="20" />
+            <form action="{{ route('backend.company.store') }}" method="post">
+                <div class="box_f">
+                    <label class="txt" for="name">
+                        Company
+                    </label>
+                    <input type="text" value="{{ old('name') }}" id="name_company" name="name"
+                        placeholder="name">
+                </div>
+    
+                <div class="box_f">
+                    @csrf
+                    <button class="btn_submit" type="submit">Add Company</button>
                 </div>
             </form>
         </div>

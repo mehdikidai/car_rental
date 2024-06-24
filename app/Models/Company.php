@@ -11,6 +11,11 @@ class Company extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'logo'
+    ];
+
     public function model(): BelongsTo
     {
         return $this->belongsTo(ModelCar::class, 'model_id');

@@ -2,6 +2,7 @@
     height: auto;
     background: $black;
     padding-top: $space*3;
+    display: block;
     .boxs{
         display: grid;
         grid-template-columns: 40% 1fr 1fr;
