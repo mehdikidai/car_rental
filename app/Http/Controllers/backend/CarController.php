@@ -10,7 +10,10 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarRequest;
 use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
@@ -133,10 +136,6 @@ class CarController extends Controller
     {
 
 
-
-
-
-
         $validatedData = $request->validate([
             'company_id' => 'required|exists:companies,id',
             'model_name' => 'required|string',
@@ -150,12 +149,9 @@ class CarController extends Controller
 
 
 
-
         $car = Car::findOrFail($id);
 
-
         $modelCar = ModelCar::findOrFail($car->model_id);
-
 
         $modelCar->update([
             'company_id' => $validatedData['company_id'],
@@ -202,14 +198,31 @@ class CarController extends Controller
             return abort(403, 'test');
         }
 
-        $car = Car::findOrFail($id);
+        try {
 
-        $res = $car->delete();
+            $car = Car::findOrFail($id);
 
-        if ($res) {
-            return back()->with('success', 'car deleted successfully');
+            $photoPath = public_path('uploads') . '/' . $car->photo;
+
+            $res = $car->delete();
+
+            if ($res) {
+
+                if (File::exists($photoPath)  &&   $car->photo != 'default.webp') { 
+
+                    File::delete($photoPath);
+                    
+                }
+
+                return back()->with('success', 'car deleted successfully');
+            }
+
+            abort(403);
+
+        } catch (Exception $e) {
+
+            return abort(500, $e->getMessage());
+
         }
-
-        abort(403);
     }
 }

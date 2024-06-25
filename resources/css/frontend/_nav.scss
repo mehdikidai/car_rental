@@ -1,5 +1,8 @@
 header {
     background: $black;
+    .menu_btn{
+        display: none !important;
+    }
     &.route_home {
         background: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(5px);
@@ -27,6 +30,9 @@ header {
             display: flex;
             gap: $space * 2;
             li {
+                &.only_phone{
+                    display: none !important;
+                }
                 a {
                     color: $white;
                     text-transform: capitalize;
@@ -108,8 +114,145 @@ header {
 
 @include respond("phone") {
     header {
-        .nav {
-            display: none;
+        position: fixed;
+        z-index: 999;
+        width: 100vw;
+        top: 0;
+        padding-inline: 20px;
+        
+    }
+    header .nav ul.links {
+        position: fixed !important;
+        left: -100vw;
+        top: 0px;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.97);
+        //display:none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        z-index: 999;
+        padding-inline: $space*2;
+        transition: all .3s linear;
+        &.active{
+            left: 0 !important;
         }
     }
+    .cover {
+        height: auto;
+        background-color: var(--color-black);
+        padding-block:0 !important;
+        height: 800px;
+        .container-max{
+            padding-block: 60px !important;
+        }
+        .route_home{
+            padding-inline: $space;
+        }
+
+    }
+    header .nav ul.links li.only_phone {
+
+        display: block !important;
+
+    }
+    header .nav .login {
+
+        display: none !important;
+
+        
+    }
+    .menu_btn{
+        width: 26px;
+        height: 26px;
+        //background: red;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        i{
+            color: $white;
+            font-size: 26px;
+            //pointer-events: none;
+        }
+    }
+    header .menu_btn {
+        display: flex !important;
+    }
+    .container-max{
+        //background: red;
+        //margin-top: 80px;
+    }
+
+    .profile-page-card .info_user {
+        height: auto !important;
+        width: 90% !important;
+        display: grid;
+        grid-template: repeat(4,36px) / 1fr !important;
+        gap: 20px;
+    }
+    .profile-page-card {
+        min-height: 370px !important;
+        padding-block: 36px !important;
+    }
+
+    .bbx{
+        overflow-x: scroll;
+    }
+
+    #customers {
+        border-collapse: collapse;
+        width: 900px !important;
+        font-size: 13px;
+        table-layout: fixed;
+        overflow-x: scroll !important;
+    }
+
+    .checkout_box {
+        min-height: 400px;
+        height: auto;
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        //background-color: red;
+        margin-bottom: 40px;
+    }
+    .checkout_box .form form {
+        width: 80%;
+        max-width: 460px;
+        display: grid;
+        grid-template-columns: 1fr !important;
+        
+    }
+    .profile-page-card .info_user .box i {
+       display: none !important;
+    }
+
+    .profile-page-card .info_user .box {
+        justify-content: start  !important;
+        padding-inline: 15px;;
+    }
+    .checkout_box .form form {
+        width: 90%  !important;
+    }
+    .checkout_box .form .tit-checkout {
+        height: 60px !important;
+    }
+    .checkout_box .form .tit-checkout h2 {
+        font-size: 18px !important;
+    }
+
+    body {
+        padding-top: 70px;
+    }
+    header.route_home {
+        background: $black;
+        backdrop-filter: blur(0);
+    }
+    
+    
+
 }
+
+

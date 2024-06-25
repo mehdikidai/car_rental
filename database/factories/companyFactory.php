@@ -19,7 +19,6 @@ class companyFactory extends Factory
         $carBrands = ['Volvo', 'MG', 'Tesla', 'BMW', 'Kia', 'Audi', 'Mercedes'];
         return [
             'name' => strtolower($this->faker->unique()->randomElement($carBrands)),
-            'logo' => 'images/cars/c4.svg',
         ];
     }
 }

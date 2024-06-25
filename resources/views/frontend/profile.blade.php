@@ -58,6 +58,7 @@
                     <p>No car reservations found.</p>
                 </div>
             @else
+            <div class="bbx">
                 <table id="customers">
                     <tr>
                         <th>@lang('t.Car')</th>
@@ -96,6 +97,8 @@
 
 
                 </table>
+            </div>
+                
 
                 @if ($my_cars->hasPages())
                     <div class="paginate">

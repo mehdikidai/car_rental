@@ -24,7 +24,7 @@ class CarFactory extends Factory
             'year' => $this->faker->year,
             'rental_price' => $this->faker->randomFloat(2, 20, 200),
             'description' => $this->faker->paragraph,
-            'photo' => '0931b663-7dc2-4930-8f4d-4632f03bdc38.webp',
+            'photo' => 'default.webp',
             'doors' => "4",
             'transmission' => $this->faker->randomElement(['auto', 'manual'])
         ];

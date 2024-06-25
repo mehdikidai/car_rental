@@ -201,8 +201,21 @@ if (formDeleteRental) {
 
 
 const langBtn = document.getElementById('lang_btn')
+const links = document.getElementById('links')
 
-langBtn.addEventListener('click',function(){
+langBtn?.addEventListener('click',function(){
     console.log(this)
     this.classList.toggle('active')
+})
+
+
+const menuBtn = document.getElementById('menu_btn')
+
+menuBtn?.addEventListener('click',function(){
+
+    menuBtn.setPointerCapture(event.pointerId)
+    links.classList.toggle('active')
+
+    console.log('hi')
+
 })

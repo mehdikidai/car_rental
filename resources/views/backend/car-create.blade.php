@@ -84,7 +84,7 @@
                 </div>
             </form>
         </div>
-        <x-space h="10" />
+        <x-space h="24" />
         <div class="boxs">
             <x-tit txt="Add a new company"></x-tit>
 

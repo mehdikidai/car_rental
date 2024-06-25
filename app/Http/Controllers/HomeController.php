@@ -14,7 +14,7 @@ class HomeController extends Controller
 
         $cars = Car::with([
             'company' => function ($q) {
-                $q->select('id', 'name','logo');
+                $q->select('id', 'name',);
             },
             'model' => function ($q) {
                 $q->select('id', 'name');

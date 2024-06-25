@@ -10,7 +10,7 @@
     <a href="{{ route('frontend.home') }}" class="logo">
         <x-logo />
     </a>
-    <ul class="links">
+    <ul class="links" id="links">
         <li><a href="{{ route('frontend.home') }}">@lang('t.home')</a></li>
         <li><a href="{{ route('frontend.cars') }}">@lang('t.cars')</a></li>
         <li><a href="#">{{ __('t.contact') }}</a></li>
@@ -19,24 +19,34 @@
             <ul>
 
                 @foreach (config('app.languages') as $lang => $language)
-
                     @if ($lang != app()->getLocale())
                         <li><a href="{{ route('lang.switch', $lang) }}"> <img
                                     src="{{ asset('images/flags/' . $lang . '.png') }}"
                                     alt="{{ $lang }}">{{ $language }}</a></li>
                     @endif
-
                 @endforeach
 
             </ul>
         </li>
+
+        @guest
+            <li class="only_phone"><a href="{{ route('login') }}">{{ __('t.sign in') }}</a> </li>
+            <li class="only_phone"><a href="{{ route('register') }}">{{ __('t.sign up') }}</a> </li>
+        @endguest
+
+        @auth
+            <li class="only_phone"> <a href="{{ route('logout') }}"> {{ __('t.logout') }} </a> </li>
+            <li class="only_phone"><a href="{{ route('profile.show-page') }}"> profile</a> </li>
+        @endauth
+
     </ul>
     <div class="login">
 
         @guest
-            <a href="{{ route('login') }}"> {{ __('t.sign in') }} </a>
-            <a href="{{ route('register') }}"> {{ __('t.sign up') }} </a>
+            <a href="{{ route('login') }}">{{ __('t.sign in') }}</a>
+            <a href="{{ route('register') }}">{{ __('t.sign up') }}</a>
         @endguest
+
 
         @auth
 
@@ -48,6 +58,9 @@
         @endauth
 
     </div>
+    <button class="menu_btn" id="menu_btn">
+        <i class="material-symbols-outlined">menu</i>
+    </button>
 </nav>
 
 </header>

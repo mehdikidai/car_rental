@@ -35,10 +35,9 @@ class CompanyController extends Controller
         ]);
 
 
-        $res = Company::create([
+        Company::create([
 
             'name' => strtolower($data['name']),
-            'logo' => 'walo'
 
         ]);
 

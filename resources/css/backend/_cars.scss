@@ -60,9 +60,12 @@
     //background: red;
     //height: 100px;
     .boxs {
-        //background: red;
+        background: $white;
+        padding-inline: $space*2;
+        padding-block: $space*4;
+        border-radius: 12px;
         //width: 80%;
-        margin: 20px auto;
+        margin: 0 auto;
             form {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;

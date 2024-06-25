@@ -13,7 +13,6 @@ class Company extends Model
 
     protected $fillable = [
         'name',
-        'logo'
     ];
 
     public function model(): BelongsTo
