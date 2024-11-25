@@ -19,16 +19,17 @@ class CarFactory extends Factory
     public function definition(): array
     {
         return [
-            'company_id' => Company::all()->random()->id,
-            'model_id' => ModelCar::all()->random()->id,
+            'company_id' => Company::query()->inRandomOrder()->first()->id ?? Company::factory()->create()->id,
+            'model_id' => ModelCar::query()->inRandomOrder()->first()->id ?? ModelCar::factory()->create()->id,
             'year' => $this->faker->year,
             'rental_price' => $this->faker->randomFloat(2, 20, 200),
             'description' => $this->faker->paragraph,
             'photo' => 'default.webp',
             'doors' => "4",
-            'transmission' => $this->faker->randomElement(['auto', 'manual'])
+            'transmission' => $this->faker->randomElement(['auto', 'manual']),
         ];
     }
+
 
 
     // private $cars = [

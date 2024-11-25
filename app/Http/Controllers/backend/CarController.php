@@ -21,11 +21,8 @@ class CarController extends Controller
 
 
     public function __construct()
-    {
-        if (!Gate::allows('isAdmin')) {
+    {  
 
-            return abort(403, 'test');
-        }
     }
 
 
@@ -69,6 +66,7 @@ class CarController extends Controller
         $company = Company::all();
 
         return view('backend.car-create', compact('company'));
+
     }
 
     /**
@@ -78,6 +76,8 @@ class CarController extends Controller
     {
 
         $validatedData = $request->validated();
+
+        Gate::authorize('isAdmin');
 
         $n_mode = ModelCar::create([
             'company_id' => $validatedData['company_id'],
@@ -148,6 +148,8 @@ class CarController extends Controller
         ]);
 
 
+        Gate::authorize('isAdmin');
+
 
         $car = Car::findOrFail($id);
 
@@ -193,10 +195,7 @@ class CarController extends Controller
     public function destroy(string $id)
     {
 
-        if (!Gate::allows('isAdmin')) {
-
-            return abort(403, 'test');
-        }
+        Gate::authorize('isAdmin');
 
         try {
 

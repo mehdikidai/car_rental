@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Company;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -13,18 +12,20 @@ class HomeController extends Controller
     {
 
         $cars = Car::with([
-            'company' => function ($q) {
-                $q->select('id', 'name',);
-            },
-            'model' => function ($q) {
-                $q->select('id', 'name');
-            }
+
+            'company' => fn($q) => $q->select('id', 'name'),
+            'model' => fn($q) => $q->select('id', 'name')
+
         ])->orderBy('id', 'DESC')->take(9)->get();
 
-        $companies = Company::all();
 
+        $companies = Cache::rememberForever('companies', function(){
 
-        return view('frontend.home', compact('cars','companies'));
+            return Car::with('company:id,name')->get()->pluck('company')->unique();
+            
+        });
+
+        return view('frontend.home', compact('cars', 'companies'));
 
     }
 }

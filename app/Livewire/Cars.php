@@ -25,7 +25,10 @@ class Cars extends Component
     public function render()
     {
 
-        $companies  =  Company::all();
+        //$companies  =  Company::where('id',Car::find($this->company_id))->get();
+        
+        $companies = Car::with('company:id,name')->get()->pluck('company')->unique();
+        //dd($companies);
 
 
         $query = Car::with(['company' => function ($q) {

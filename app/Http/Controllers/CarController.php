@@ -25,9 +25,8 @@ class CarController extends Controller
 
         $car = Car::findOrFail($request->id);
 
-        //dd($car);
-
         return view('frontend.car', compact('car'));
+
     }
 
     

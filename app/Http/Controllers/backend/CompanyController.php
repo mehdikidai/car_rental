@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class CompanyController extends Controller
 {
@@ -40,6 +41,8 @@ class CompanyController extends Controller
             'name' => strtolower($data['name']),
 
         ]);
+
+        Cache::forget('companies');
 
         return redirect()->back()->with('success','gdfgfdgdf');
     }
