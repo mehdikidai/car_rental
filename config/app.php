@@ -122,12 +122,10 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
-
-    'locale' => 'en',
-    'fallback_locale' => 'en',
     'languages' => [
         'en' => 'English',
         'fr' => 'Français',
     ],
+    'email' => env('APP_EMAIL', 'default@example.com')
 
 ];

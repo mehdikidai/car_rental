@@ -53,7 +53,7 @@
         width: 80%;
         //background: red;
         display: grid;
-        grid-template: 1fr /1fr 1fr 1fr 120px;
+        grid-template: 1fr /1fr 1fr 1fr;
         gap: $space;
         .box {
             background: $white;

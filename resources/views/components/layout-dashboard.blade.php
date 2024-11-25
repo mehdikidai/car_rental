@@ -36,7 +36,7 @@
 
     <div class="sidebar">
         <div class="logo">
-            <a href="{{ route('backend.home') }}">
+            <a href="{{ route('frontend.home') }}">
                 <x-logo />
             </a>
 

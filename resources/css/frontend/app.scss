@@ -22,7 +22,7 @@
     font-family: "Inter", sans-serif;
 }
 
-img{
+img {
     color: transparent;
 }
 
@@ -35,12 +35,38 @@ body {
     background: $bg_white;
 }
 
+:root {
+    --sb-track-color: #232e33;
+    --sb-thumb-color: #6baf8d;
+    --sb-size: 14px;
+}
+
+@supports (-webkit-appearance: none) {
+    body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    body::-webkit-scrollbar-track {
+        background: #c7c7c7;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: #4d4d4d;
+    }
+}
+
+@-moz-document url-prefix(){
+    html {
+        scrollbar-color: #4d4d4d #eeeeee00;
+        scrollbar-width: thin;
+    }
+}
+
 .container {
     width: 100%;
     max-width: $width;
     //background: yellow;
     margin: 0 auto;
-    
 }
 
 .splide_hidden {

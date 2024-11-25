@@ -43,6 +43,7 @@ return [
         'text_footer' => 'Discover our wide selection of vehicles designed to meet all your driving requirements. Whatever your needs .',
         'Links' => 'Links',
         'social media' => 'social media',
-    ]
+    ],
+    'dashboard' => 'dashboard'
 
 ];

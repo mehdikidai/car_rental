@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Rental;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 use Illuminate\Support\Facades\Gate;
@@ -32,6 +34,12 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('isAdmin', function (User $user) {
 
             return $user->is_admin;
+
+        });
+
+        Blade::if('isAdmin', function () {
+
+            return Auth::check() ? Auth::user()->is_admin : false;
 
         });
     }

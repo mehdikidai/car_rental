@@ -10,7 +10,7 @@
         <x-container>
             <div class="cover-content">
                 <h1>{{ __('t.Rent the Perfect Car Easily and Quickly') }}</h1>
-                <p>{{ Str::of( __('t.cover text'))->words(35, ' ...')  }}</p>
+                {{-- <p>{{ Str::of( __('t.cover text'))->words(35, ' ...')  }}</p> --}}
                 <div class="booking-section">
                     <form action="{{  route('search.frontend.home') }}" method="get">
                         

@@ -44,6 +44,7 @@ return [
         'text_footer' => 'Découvrez notre large sélection de véhicules conçus pour répondre à toutes vos exigences de conduite. Quels que soient vos besoins.',
         'Links' => 'Liens',
         'social media' => 'réseaux sociaux',
-    ]
+    ],
+    'dashboard' => 'dashboard'
 
 ];

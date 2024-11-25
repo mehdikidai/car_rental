@@ -22,8 +22,8 @@
                     <h2>@lang('t.footer.social media')</h2>
                     <ul>
                     
-                        <li><a href="#"><i class="material-symbols-outlined">phone</i>0605805993</a></li>
-                        <li><a href="#"><i class="material-symbols-outlined">mail</i>mehdikidai@gmail.com</a></li>
+                        <li><a href="#"><i class="material-symbols-outlined">phone</i>0601010101</a></li>
+                        <li><a href="#"><i class="material-symbols-outlined">mail</i>{{ config('app.email') }}</a></li>
                         
                        
                         

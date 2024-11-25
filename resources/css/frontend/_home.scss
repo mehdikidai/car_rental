@@ -30,7 +30,7 @@
             width: 90vw;
             max-width: 800px;
             text-align: center;
-            font-size: 45px;
+            font-size: 60px;
             text-transform: uppercase;
             color: $white;
             font-weight: 900;
@@ -49,12 +49,14 @@
             width: 100%;
             //max-width: 850px;
             height: 140px;
-            background: $white;
+            background: #ffffffe3;
             bottom: 0;
             transform: translateY(50%);
             padding: $space $space * 2;
-            border-radius: 12px;
+            //border-radius: 12px;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            clip-path: inset(0 round 12px);
+            backdrop-filter: blur(5px);
             form {
                 display: flex;
                 height: 100%;

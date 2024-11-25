@@ -13,7 +13,12 @@
     <ul class="links" id="links">
         <li><a href="{{ route('frontend.home') }}">@lang('t.home')</a></li>
         <li><a href="{{ route('frontend.cars') }}">@lang('t.cars')</a></li>
-        <li><a href="#">{{ __('t.contact') }}</a></li>
+
+        @isAdmin
+            <li><a href="{{ route('backend.home') }}">@lang('t.dashboard')</a></li>
+        @endisAdmin
+
+        {{-- <li><a href="#">{{ __('t.contact') }}</a></li> --}}
         <li class="lang_btn">
             <a id="lang_btn" href="javascript:void(0);">@lang('t.language')</a>
             <ul>

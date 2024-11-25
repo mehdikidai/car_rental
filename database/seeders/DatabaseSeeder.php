@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        
+
 
         User::factory()->create([
-            'name' => 'mehdi kidai',
-            'email' => 'mehdikidai@gmail.com',
-            'password' => Hash::make('123456789'),
+            'name' => 'imane imane',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('12345678'),
             'is_admin' => 1
         ]);
 
@@ -31,9 +31,26 @@ class DatabaseSeeder extends Seeder
 
         Company::factory(7)->create();
         ModelCar::factory(10)->create();
-        //User::factory(1)->create();
-        Customer::factory(1)->create();
-        Car::factory()->count(40)->create();
+        $users = User::factory(19)->create();
+
+        // start create customer -----------
+        
+        Customer::factory()->create([
+            'user_id' => 1
+        ]);
+
+        $users->each(function ($user) {
+            echo $user->id; 
+            Customer::factory()->create([
+                'user_id' => $user->id
+            ]);
+        });
+
+
+        // end create customer -----------
+
+
+        Car::factory()->count(50)->create();
 
     }
 }

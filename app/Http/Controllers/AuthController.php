@@ -41,11 +41,6 @@ class AuthController extends Controller
 
             $request->session()->regenerate();
             
-            if (Auth::user()->is_admin) {
-
-                return redirect()->route('backend.home');
-
-            }
             return redirect()->route('frontend.home');
         }
 

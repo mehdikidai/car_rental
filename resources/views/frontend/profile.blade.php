@@ -36,10 +36,10 @@
                         <i class="material-symbols-outlined icon">drafts</i>
                         <small>{{ $user->email }}</small>
                     </div>
-                    <div class="box">
+                    {{-- <div class="box">
                         <i class="material-symbols-outlined icon">home</i>
                         <small>{{ $user->customer->address }}</small>
-                    </div>
+                    </div> --}}
                     <div class="box">
                         <i class="material-symbols-outlined icon">phone_in_talk</i>
                         <small>{{ $user->customer->phone }}</small>

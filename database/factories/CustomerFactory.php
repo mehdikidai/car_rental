@@ -20,9 +20,9 @@ class CustomerFactory extends Factory
         return [
             
             'user_id' => 1,
-            'phone' => '0605805993',
-            'address' => 'maghreb arabi d',
-            'city' => 'kenitra',
+            'phone' => $this->faker->phoneNumber(),
+            'address' => $this->faker->address,
+            'city' => $this->faker->city,
 
         ];
     }
