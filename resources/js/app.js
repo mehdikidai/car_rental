@@ -229,12 +229,12 @@ if (textCover) {
     const text = new SplitType('#text_cover')
 
     gsap.from('.char',{
-        y:30,
+        y:50,
         stagger:0.05,
         opacity:0,
         delay:0.6,
-        ease: "elastic.out(1,0.5)",
-        direction:.1
+        ease: "power4.out",
+        direction:.5,
         
     })
 
