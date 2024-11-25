@@ -9,7 +9,7 @@
         <img src="{{ asset('images/bg_cover.jpg') }}" alt="a" class="photo_cover">
         <x-container>
             <div class="cover-content">
-                <h1>{{ __('t.Rent the Perfect Car Easily and Quickly') }}</h1>
+                <h1 id="text_cover">{{ __('t.Rent the Perfect Car Easily and Quickly') }}</h1>
                 {{-- <p>{{ Str::of( __('t.cover text'))->words(35, ' ...')  }}</p> --}}
                 <div class="booking-section">
                     <form action="{{  route('search.frontend.home') }}" method="get">

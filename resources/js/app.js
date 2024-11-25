@@ -9,6 +9,8 @@ import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 //import { areDatesOutsideRange } from "./helper";
 import axios from "axios";
 import moment from "moment";
+import SplitType from 'split-type'
+import { gsap } from "gsap";
 
 async function getBookedDays() {
     const Id = document.getElementById("input_car_id").value;
@@ -219,3 +221,23 @@ menuBtn?.addEventListener('click',function(){
     console.log('hi')
 
 })
+
+const textCover = document.getElementById('text_cover');
+
+if (textCover) {
+
+    const text = new SplitType('#text_cover')
+
+    gsap.from('.char',{
+        y:30,
+        stagger:0.05,
+        opacity:0,
+        delay:0.6,
+        ease: "elastic.out(1,0.5)",
+        direction:.1
+        
+    })
+
+    console.log(text)
+    
+}

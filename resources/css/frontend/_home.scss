@@ -1,6 +1,6 @@
 .cover {
     height: 600px;
-    background-color: $black;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -14,7 +14,20 @@
         position: absolute;
         transform: translate(-50%, -50%);
         object-position: center 40%;
+        filter: blur(0);
         //opacity: 0.4;
+        animation: movePhoto 5s linear;
+    }
+
+    @keyframes movePhoto {
+
+        from{
+            filter: blur(5px);
+        }
+        to{
+            filter: blur(0);
+        }
+        
     }
 
     .cover-content {
