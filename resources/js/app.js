@@ -241,7 +241,7 @@ if (textCover) {
         direction: 0.2,
     });
 
-    tl.from(".splide__slide", {
+    gsap.from(".splide__slide", {
         y: 50,
         opacity: 0,
         ease: "expo.out",
@@ -250,5 +250,27 @@ if (textCover) {
         filter: "blur(4px)",
     });
 
-    console.log(text);
+}
+
+
+const boxsCars = document.querySelector(".boxs");
+
+if (boxsCars) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // الحصول على جميع العناصر
+    const cars = gsap.utils.toArray(".div-img > img");
+
+    if (cars.length) {
+        gsap.from(cars, {
+            scrollTrigger: {
+                trigger: cars[0], 
+                scrub: true, 
+                //markers: true, 
+            },
+            x: 400,
+            stagger: 0.1,
+            ease: "power2.out"
+        });
+    }
 }

@@ -4,8 +4,8 @@
     </x-slot:title>
 
     <x-navbar />
-    <x-space h="80" />
-    <div style="min-height: calc(100vh - 80px)">
+   
+    <div style="min-height: calc(100dvh - 70px)">
 
         @if (session('ok'))
             <script>
@@ -19,7 +19,7 @@
                 notyf.success('{{ session('ok') }}');
             </script>
         @endif
-
+        <x-space h="80" />
         <x-container>
 
             <div class="profile-page-card">

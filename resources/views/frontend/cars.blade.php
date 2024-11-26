@@ -4,8 +4,9 @@
     </x-slot:title>
 
     <x-navbar />
-    <x-space h="40" />
+    
     <div style="min-height: calc(100vh - 80px)">
+        <x-space h="40" />
         <x-container>
 
             @livewire('cars')
