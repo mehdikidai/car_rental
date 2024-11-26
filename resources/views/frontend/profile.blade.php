@@ -23,6 +23,10 @@
         <x-container>
 
             <div class="profile-page-card">
+
+                <a href="{{ route('profile.edit') }}" class="btn_update_profile">
+                    <i class="material-symbols-outlined icon">edit</i>
+                </a>
                 
                 <div class="user_profile">
                     

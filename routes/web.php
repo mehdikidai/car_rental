@@ -57,6 +57,9 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'showPage'])->name('profile.show-page');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/edit', [ProfileController::class, 'update'])->name('profile.update');
+
 });
 
 

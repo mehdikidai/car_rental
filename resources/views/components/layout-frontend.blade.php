@@ -21,7 +21,7 @@
 
 
     @livewireStyles
-    @vite(['resources/css/frontend/app.scss', 'resources/js/alert.js'])
+    @vite(['resources/css/frontend/app.scss','resources/js/alert.js'])
 
 </head>
 
