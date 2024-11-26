@@ -4,9 +4,10 @@
 
 .form_container {
     height: auto;
-    max-width: 460px;
+    max-width: 420px;
     width: 100%;
     background: $bg_white;
+    background: #fff;
     margin: 0 auto;
     transform: translateY(100px);
     display: flex;
@@ -14,12 +15,14 @@
     gap: $space;
     padding-block: $space * 3;
     padding-inline: $space;
-    //border-radius: 12px;
-    //box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 0px 20px;
     h1 {
-        font-size: 35px;
+        font-size: 32px;
+        line-height: 32px;
         //text-align: center;
         text-transform: uppercase;
+        font-weight: 700;
     }
     p {
         //text-align: center;
@@ -35,7 +38,7 @@
         grid-template-columns: 1fr 1fr;
         gap: $space $space * 0.6;
         margin-block: $space * 0.5;
-
+        
         .box {
             height: auto;
             //background: rgb(51, 51, 51);
@@ -73,7 +76,8 @@
                 background: $main_500;
                 color: $white;
                 border-radius: 4px;
-                font-size: 14px;
+                font-size: 13px;
+                font-weight: 500;
                 text-transform: capitalize;
                 display: flex;
                 align-items: center;
@@ -101,8 +105,9 @@
             flex: 1;
             color: $white;
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: capitalize;
+            font-weight: 500;
             &:nth-child(1) {
                 background: $white;
                 color: $black;

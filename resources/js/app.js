@@ -228,14 +228,31 @@ if (textCover) {
 
     const text = new SplitType('#text_cover')
 
-    gsap.from('.char',{
+    var tl = gsap.timeline({repeatDelay: 1});
+
+    tl.from('.char',{
         y:50,
         stagger:0.05,
         opacity:0,
-        delay:0.6,
         ease: "power4.out",
         direction:.5,
         
+    })
+
+    tl.from('.booking-section',{
+        y:50,
+        opacity:0,
+        ease: "power1.out",
+        direction:.2,
+    })
+
+    tl.from('.splide__slide',{
+        y:50,
+        opacity:0,
+        ease: "expo.out",
+        direction:0,
+        stagger:0.15,
+        filter: "blur(4px)",
     })
 
     console.log(text)

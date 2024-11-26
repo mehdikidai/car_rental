@@ -22,7 +22,7 @@ class CarFactory extends Factory
             'company_id' => Company::query()->inRandomOrder()->first()->id ?? Company::factory()->create()->id,
             'model_id' => ModelCar::query()->inRandomOrder()->first()->id ?? ModelCar::factory()->create()->id,
             'year' => $this->faker->year,
-            'rental_price' => $this->faker->randomFloat(2, 20, 200),
+            'rental_price' => $this->faker->randomFloat(0, 400, 1000),
             'description' => $this->faker->paragraph,
             'photo' => $this->faker->randomElement(['default.webp','1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png']),
             'doors' => "4",

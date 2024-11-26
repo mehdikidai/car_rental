@@ -10,10 +10,11 @@
         @csrf
         <div class="form_box">
             <div class="box column_2">
+                
                 <input class="input_form" type="text" name="email_x" id="email_input" placeholder="Email" value="{{ session('email') ? session('email') : old('email') }}">
             </div>
             <div class="box column_2">
-
+                
                 <input class="input_form" type="password" name="password_x" id="password_input" placeholder="Password">
             </div>
             
