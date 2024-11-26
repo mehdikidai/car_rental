@@ -9,8 +9,9 @@ import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 //import { areDatesOutsideRange } from "./helper";
 import axios from "axios";
 import moment from "moment";
-import SplitType from 'split-type'
+import SplitType from "split-type";
 import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 async function getBookedDays() {
     const Id = document.getElementById("input_car_id").value;
@@ -201,60 +202,53 @@ if (formDeleteRental) {
     });
 }
 
+const langBtn = document.getElementById("lang_btn");
+const links = document.getElementById("links");
 
-const langBtn = document.getElementById('lang_btn')
-const links = document.getElementById('links')
+langBtn?.addEventListener("click", function () {
+    console.log(this);
+    this.classList.toggle("active");
+});
 
-langBtn?.addEventListener('click',function(){
-    console.log(this)
-    this.classList.toggle('active')
-})
+const menuBtn = document.getElementById("menu_btn");
 
+menuBtn?.addEventListener("click", function () {
+    menuBtn.setPointerCapture(event.pointerId);
+    links.classList.toggle("active");
 
-const menuBtn = document.getElementById('menu_btn')
+    console.log("hi");
+});
 
-menuBtn?.addEventListener('click',function(){
-
-    menuBtn.setPointerCapture(event.pointerId)
-    links.classList.toggle('active')
-
-    console.log('hi')
-
-})
-
-const textCover = document.getElementById('text_cover');
+const textCover = document.getElementById("text_cover");
 
 if (textCover) {
+    const text = new SplitType("#text_cover");
 
-    const text = new SplitType('#text_cover')
+    var tl = gsap.timeline({ repeatDelay: 1 });
 
-    var tl = gsap.timeline({repeatDelay: 1});
-
-    tl.from('.char',{
-        y:50,
-        stagger:0.05,
-        opacity:0,
+    tl.from(".char", {
+        y: 50,
+        stagger: 0.05,
+        opacity: 0,
         ease: "power4.out",
-        direction:.5,
-        
-    })
+        direction: 0.5,
+    });
 
-    tl.from('.booking-section',{
-        y:50,
-        opacity:0,
+    tl.from(".booking-section", {
+        y: 50,
+        opacity: 0,
         ease: "power1.out",
-        direction:.2,
-    })
+        direction: 0.2,
+    });
 
-    tl.from('.splide__slide',{
-        y:50,
-        opacity:0,
+    tl.from(".splide__slide", {
+        y: 50,
+        opacity: 0,
         ease: "expo.out",
-        direction:0,
-        stagger:0.15,
+        direction: 0,
+        stagger: 0.15,
         filter: "blur(4px)",
-    })
+    });
 
-    console.log(text)
-    
+    console.log(text);
 }

@@ -13,19 +13,19 @@
         z-index: 0;
         position: absolute;
         transform: translate(-50%, -50%);
-        object-position: center 40%;
+        object-position: center 50%;
         filter: blur(0);
         //opacity: 0.4;
-        animation: movePhoto 5s linear;
+        animation: movePhoto 1.5s ease-in-out;
     }
 
     @keyframes movePhoto {
 
-        from{
-            filter: blur(5px);
+        0% {
+            object-position: center 0;
         }
-        to{
-            filter: blur(0);
+        100% {
+            object-position: center 50%;
         }
         
     }
