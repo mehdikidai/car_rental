@@ -36,6 +36,7 @@ header {
                 a {
                     color: $white;
                     text-transform: capitalize;
+                    font-size: 16px;
                 }
                 &.lang_btn {
                     position: relative;
@@ -52,7 +53,7 @@ header {
                         position: absolute;
                         background: $white;
                         bottom: -6px;
-                        padding: 12px;
+                        padding: 10px 12px;
                         width: 130px;
                         border-radius: 4px;
                         display: flex;
@@ -68,13 +69,13 @@ header {
                                 color: $color_text;
                                 //background: blue;
                                 display: flex;
-                                font-size: 14px;
+                                font-size: 14px !important;
                                 display: flex;
                                 align-items: center;
                                 gap: 6px;
                                 img {
-                                    width: 16px;
-                                    height: 16px;
+                                    width: 14px;
+                                    height: 14px;
                                 }
                             }
                         }
