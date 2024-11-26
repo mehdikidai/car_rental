@@ -4,7 +4,7 @@
     </x-slot:title>
 
     <x-navbar />
-   
+
     <div style="min-height: calc(100dvh - 70px)">
 
         @if (session('ok'))
@@ -27,13 +27,13 @@
                 <a href="{{ route('profile.edit') }}" class="btn_update_profile">
                     <i class="material-symbols-outlined icon">edit</i>
                 </a>
-                
+
                 <div class="user_profile">
-                    
+
                     <div class="photo"><img src="{{ asset('images/avatar/49.png') }}" alt="user"></div>
                     <span class="name">{{ $user->name }} <i class="material-symbols-outlined">check_circle</i></span>
 
-                    
+
                 </div>
                 <div class="info_user">
                     <div class="box">
@@ -62,47 +62,48 @@
                     <p>No car reservations found.</p>
                 </div>
             @else
-            <div class="bbx">
-                <table id="customers">
-                    <tr>
-                        <th>@lang('t.Car')</th>
-                        <th>@lang('t.Model')</th>
-                        <th>Booking date</th>
-                        <th>Pickup Date</th>
-                        <th>@lang('t.Return date')</th>
-                        <th>@lang('t.Duration')</th>
-                        <th>@lang('t.Price')</th>
-                        <th>@lang('t.Status')</th>
-                        <th>_</th>
-
-                    </tr>
-                    @foreach ($my_cars as $car)
+                <div class="bbx">
+                    <table id="customers">
                         <tr>
-                            <td><a href="{{ route('car.show',$car->car->id) }}">{{ $car->car->company->name }}</a></td>
-                            <td>{{ $car->car->model->name }}</td>
-                            <td>{{ $car->created_at->isoFormat('dddd,D MMMM Y') }}</td>
-                            <td>{{ $car->rental_date }}</td>
-                            <td>{{ $car->return_date }}</td>
-                            <td>{{ $car->days }}</td>
-                            <td>{{ $car->total_price . ' Dh' }}</td>
-                            <td>{{ !true ? 'Confirmed' : 'Pending' }}</td>
-                            <td>
-                                <form action="{{ route('rental.destroy', $car->id) }}" method="post"
-                                    class="form_delete_rental">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"><i class="material-symbols-outlined">delete</i></button>
-                                </form>
+                            <th>@lang('t.Car')</th>
+                            <th>@lang('t.Model')</th>
+                            <th>Booking date</th>
+                            <th>Pickup Date</th>
+                            <th>@lang('t.Return date')</th>
+                            <th>@lang('t.Duration')</th>
+                            <th>@lang('t.Price')</th>
+                            <th>@lang('t.Status')</th>
+                            <th>_</th>
 
-                            </td>
                         </tr>
-                    @endforeach
+                        @foreach ($my_cars as $car)
+                            <tr>
+                                <td><a href="{{ route('car.show', $car->car->id) }}">{{ $car->car->company->name }}</a>
+                                </td>
+                                <td>{{ $car->car->model->name }}</td>
+                                <td>{{ $car->created_at->isoFormat('dddd,D MMMM Y') }}</td>
+                                <td>{{ $car->rental_date }}</td>
+                                <td>{{ $car->return_date }}</td>
+                                <td>{{ $car->days }}</td>
+                                <td>{{ $car->total_price . ' Dh' }}</td>
+                                <td>{{ !true ? 'Confirmed' : 'Pending' }}</td>
+                                <td>
+                                    <form action="{{ route('rental.destroy', $car->id) }}" method="post"
+                                        class="form_delete_rental">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"><i class="material-symbols-outlined">delete</i></button>
+                                    </form>
+
+                                </td>
+                            </tr>
+                        @endforeach
 
 
 
-                </table>
-            </div>
-                
+                    </table>
+                </div>
+
 
                 @if ($my_cars->hasPages())
                     <div class="paginate">
