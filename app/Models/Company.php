@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use  App\Models\ModelCar;
+use App\Models\ModelCar;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Company extends Model
 {
@@ -13,10 +13,11 @@ class Company extends Model
 
     protected $fillable = [
         'name',
+        'company_id'
     ];
 
-    public function model(): BelongsTo
+    public function model(): HasMany
     {
-        return $this->belongsTo(ModelCar::class, 'model_id');
+        return $this->hasMany(ModelCar::class, 'model_id');
     }
 }

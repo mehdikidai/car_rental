@@ -36,7 +36,7 @@
         //background: blue;
         display: flex;
         flex-direction: column;
-        gap: $space * 0.5;
+        gap: 0;
         align-items: center;
         .photo {
             //background: yellow;
@@ -54,11 +54,13 @@
             overflow: hidden;
             white-space: nowrap;
             font-size: 18px;
+            line-height: 18px;
             color: $color_text;
             text-transform: capitalize;
             display: flex;
             align-items: center;
             gap: $space * 0.5;
+            margin-top: 15px;
             i {
                 font-size: 18px;
                 color: #0abaff;
@@ -102,14 +104,14 @@
     border-collapse: collapse;
     width: 100%;
     font-size: 13px;
-    table-layout: fixed;
+    //table-layout: fixed;
 }
 
 #customers td,
 #customers th {
     border-bottom: 1px solid #ddd;
     //border: none;
-    padding: 13px;
+    padding: 10px;
     text-transform: capitalize;
     &:last-child {
         width: 50px;
@@ -225,10 +227,10 @@
     border-radius: 12px;
     box-shadow: none;
     h1 {
-        font-size: 32px;
+        font-size: 25px;
         line-height: 32px;
         //text-align: center;
-        text-transform: uppercase;
+        text-transform: capitalize;
         font-weight: 700;
         //text-align: center;
     }
