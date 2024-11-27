@@ -2,65 +2,34 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\RedirectResponse;
 
 class AuthController extends Controller
 {
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function destroy(Request $request): RedirectResponse
     {
-        //
-    }
+        try {
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+            Gate::authorize('isAdmin');
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Request $request,$id)
-    {
-
-
-        if (!Gate::allows('isAdmin')) {
-
-            return abort(403, 'test');
-
-        }
-
-        $user = User::find($request->id);
-
-        if ($user) {
+            $user = User::findOrFail($request->id);
 
             $user->customer()->delete();
 
             $user->delete();
 
-            return redirect()->back()->with('msg', 'ok');
-            
-        } else {
+            return redirect()->back()->with('msg', 'User deleted successfully.');
 
-            return abort(404);
+        } catch (\Exception $e) {
+
+            return redirect()->back()->withErrors(['error' => 'An error occurred while deleting the user.']);
+
         }
+
     }
 }
