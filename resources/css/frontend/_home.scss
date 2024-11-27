@@ -13,7 +13,7 @@
         z-index: 0;
         position: absolute;
         transform: translate(-50%, -50%);
-        object-position: center 50%;
+        object-position: center 20%;
         filter: blur(0);
         //opacity: 0.4;
         animation: movePhoto 1.5s ease-in-out;
@@ -25,7 +25,7 @@
             object-position: center 0;
         }
         100% {
-            object-position: center 50%;
+            object-position: center 20%;
         }
         
     }
