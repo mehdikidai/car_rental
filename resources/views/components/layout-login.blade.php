@@ -20,6 +20,7 @@
 <body>
 
 
+    <x-space h="60"/>
 
     <div class="form_container">
         {{ $slot }}

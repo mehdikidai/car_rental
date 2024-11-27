@@ -8,7 +8,7 @@
     <div style="min-height: calc(100dvh - 80px)">
 
         <x-container>
-
+            <x-space h="80"/>
             <div class="form_container">
                 <h1>update profile</h1>
                 <p>Lorem ipsum dolor sit.</p>
