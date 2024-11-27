@@ -31,7 +31,6 @@
     }
 
     .cover-content {
-        //background: yellow;
         height: 520px;
         display: flex;
         flex-direction: column;
@@ -43,7 +42,7 @@
             width: 90vw;
             max-width: 800px;
             text-align: center;
-            font-size: 60px;
+            font-size: 50px;
             text-transform: uppercase;
             color: $white;
             font-weight: 900;
