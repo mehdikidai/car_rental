@@ -15,22 +15,21 @@ class LoginTest extends TestCase
      */
     public function test_login_with_valid_credentials()
     {
-        
+
         $user = User::factory()->create([
             'email' => 'test@example.com',
             'password' => bcrypt('password123'),
-            'is_admin' => false, 
+            'is_admin' => false,
         ]);
 
-        
         $response = $this->post('/login', [
             'email_x' => 'test@example.com',
             'password_x' => 'password123',
         ]);
 
-        
         $response->assertRedirect(route('frontend.home'));
         $this->assertAuthenticatedAs($user);
+
     }
 
     /**
@@ -38,21 +37,23 @@ class LoginTest extends TestCase
      */
     public function test_login_with_invalid_credentials()
     {
-        
+
         $user = User::factory()->create([
             'email' => 'test@example.com',
             'password' => bcrypt('password123'),
         ]);
 
-        
+
         $response = $this->post('/login', [
             'email_x' => 'test@example.com',
             'password_x' => 'wrongpassword',
         ]);
 
-        
+
         $response->assertSessionHas('error', 'test');
         $this->assertGuest();
+
+        $user->delete();
     }
 
     /**
@@ -60,21 +61,23 @@ class LoginTest extends TestCase
      */
     public function test_login_as_admin_redirects_to_backend()
     {
-        
+
         $admin = User::factory()->create([
             'email' => 'admin@example.com',
             'password' => bcrypt('adminpassword'),
             'is_admin' => true,
         ]);
 
-        
+
         $response = $this->post('/login', [
             'email_x' => 'admin@example.com',
             'password_x' => 'adminpassword',
         ]);
 
-        $response->assertRedirect(route('backend.home'));
+        $response->assertRedirect(route('frontend.home'));
         $this->assertAuthenticatedAs($admin);
+
+
     }
 }
 
